@@ -31,10 +31,6 @@ UtilityMaestro is a versatile suite of tools that caters to both pen testers and
 
 To get started with UtilityMaestro, follow these installation instructions. Make sure you have [Prerequisite Software] installed.
 
+TBD
 
 
-Fork the repository.
-Create a new branch for your feature or bug fix.
-Make your changes and commit them with descriptive messages.
-Submit a pull request, clearly explaining the purpose of the changes.
-For more details, please read our Contribution Guidelines
