@@ -24,7 +24,7 @@ UtilityMaestro is a versatile suite of tools that caters to both pen testers and
 ## Features
 
 - **Cross-Platform:** Works seamlessly on Windows, macOS, and Linux.
-- **Optimization Tools:** Boost PC performance with built-in optimization utilities.
+- **Optimization Tools:** TBD
 - **Security Toolkit:** Includes a range of white-hat hacker tools for penetration testing and security assessments.
 
 ## Installation
