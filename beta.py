@@ -4,7 +4,6 @@ import socket
 import urllib.request
 from scapy.all import *
 
-
 # Define the correct access code
 correct_access_code = "1234"
 
@@ -63,7 +62,6 @@ def port_scan(host, port_range, output_text):
         output_text.insert(tk.END, f"Error scanning ports: {str(e)}\n")
 
 
-# Modify the vulnerability_scan function to use urllib
 def vulnerability_scan(target_url, output_text):
     try:
         # Send a GET request to the target URL using urllib
@@ -79,7 +77,6 @@ def vulnerability_scan(target_url, output_text):
         output_text.insert(tk.END, f"Error scanning {target_url}: {str(e)}\n")
 
 
-# Function to perform a dictionary attack on a password
 def password_cracker(target_password, dictionary, output_text):
     found = False
     for guess in dictionary:
@@ -91,7 +88,6 @@ def password_cracker(target_password, dictionary, output_text):
         output_text.insert(tk.END, "Password not found in dictionary.\n")
 
 
-# Add "Password Cracker" functionality
 def password_cracker_tool():
     password_cracker_window = tk.Toplevel(app)
     password_cracker_window.title("Password Cracker")
@@ -119,7 +115,6 @@ def password_cracker_tool():
     crack_button.pack()
 
 
-# Function to start the password cracking process
 def start_password_cracking(target_password, dictionary_file, output_text):
     try:
         with open(dictionary_file, "r") as file:
@@ -129,7 +124,6 @@ def start_password_cracking(target_password, dictionary_file, output_text):
         output_text.insert(tk.END, f"Error cracking password: {str(e)}\n")
 
 
-# Function to perform network sniffing
 def network_sniffer(output_text):
     try:
         def packet_handler(packet):
@@ -143,7 +137,6 @@ def network_sniffer(output_text):
         output_text.insert(tk.END, f"Error sniffing packets: {str(e)}\n")
 
 
-# Modify the open_tool function to include the "Network Sniffer" and "SQL Injection Tool"
 def open_tool(tool_name):
     info = custom_tools.get(tool_name, "Tool not found")
     tool_window = tk.Toplevel(app)
@@ -167,9 +160,8 @@ def open_tool(tool_name):
         output_text = scrolledtext.ScrolledText(tool_window, wrap=tk.WORD, width=40, height=10)
         output_text.pack(padx=10, pady=10)
 
-        scan_button = ttk.Button(tool_window, text="Start Scan", command=lambda: start_port_scan(host_entry.get(),
-                                                                                               port_range_entry.get(),
-                                                                                               output_text))
+        scan_button = ttk.Button(tool_window, text="Start Scan",
+                                 command=lambda: port_scan(host_entry.get(), port_range_entry.get(), output_text))
         scan_button.pack()
     elif tool_name == "Vulnerability Scanner":
         vulnerability_scanner_label = ttk.Label(tool_window, text="Vulnerability Scanner", font=("Helvetica", 16))
@@ -183,8 +175,8 @@ def open_tool(tool_name):
         output_text = scrolledtext.ScrolledText(tool_window, wrap=tk.WORD, width=40, height=10)
         output_text.pack(padx=10, pady=10)
 
-        scan_button = ttk.Button(tool_window, text="Start Scan", command=lambda: start_vulnerability_scan(target_entry.get(),
-                                                                                                         output_text))
+        scan_button = ttk.Button(tool_window, text="Start Scan",
+                                 command=lambda: vulnerability_scan(target_entry.get(), output_text))
         scan_button.pack()
     elif tool_name == "Password Cracker":
         password_cracker_tool()
@@ -206,7 +198,6 @@ def show_about():
     messagebox.showinfo("About UtilityMaestero", about_text)
 
 
-# Create the main application window
 app = tk.Tk()
 app.title("UtilityMaestero")
 
@@ -219,7 +210,6 @@ x = (screen_width - window_width) // 2
 y = (screen_height - window_height) // 2
 app.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
-# Create an access frame
 access_frame = ttk.Frame(app)
 access_frame.pack()
 
@@ -235,14 +225,11 @@ access_code_entry.pack()
 access_button = ttk.Button(access_frame, text="Access Tools", command=authenticate_access)
 access_button.pack()
 
-# Create a menu bar
 menu_bar = tk.Menu(app)
 app.config(menu=menu_bar)
 
-# Add an "About" menu option
 help_menu = tk.Menu(menu_bar, tearoff=0)
 menu_bar.add_cascade(label="Help", menu=help_menu)
 help_menu.add_command(label="About UtilityMaestero", command=show_about)
 
-# Start the main GUI loop
 app.mainloop()
