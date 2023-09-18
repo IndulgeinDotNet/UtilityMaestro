@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
 import socket
-import urllib.request
+import requests
 from scapy.all import *
 
 # Define the correct access code
@@ -121,7 +121,7 @@ def create_network_sniffer_tool(tool_frame):
     tool_label = ttk.Label(tool_frame, text="Network Sniffer", font=("Helvetica", 16))
     tool_label.pack(pady=10)
 
-    output_text = scrolledtext.ScrolledText(tool_frame, wrap=tk.WORD, width=40, height=10)
+    output_text = scrolledtext.ScrolledText(tool_frame, wrap=tk.WORD, width=80, height=20)
     output_text.pack(padx=10, pady=10)
 
     sniff_button = ttk.Button(tool_frame, text="Start Sniffing",
@@ -133,7 +133,24 @@ def create_sql_injection_tool(tool_frame):
     tool_label = ttk.Label(tool_frame, text="SQL Injection Tool", font=("Helvetica", 16))
     tool_label.pack(pady=10)
 
-    # Implement SQL Injection Tool UI components and functionality here
+    target_label = ttk.Label(tool_frame, text="Target URL:")
+    target_label.pack()
+    target_entry = ttk.Entry(tool_frame)
+    target_entry.pack()
+
+    payload_label = ttk.Label(tool_frame, text="SQL Payload:")
+    payload_label.pack()
+    payload_entry = ttk.Entry(tool_frame)
+    payload_entry.pack()
+
+    result_label = ttk.Label(tool_frame, text="Result:")
+    result_label.pack()
+    result_text = scrolledtext.ScrolledText(tool_frame, wrap=tk.WORD, width=40, height=10)
+    result_text.pack(padx=10, pady=10)
+
+    scan_button = ttk.Button(tool_frame, text="Execute SQL Injection",
+                             command=lambda: execute_sql_injection(target_entry.get(), payload_entry.get(), result_text))
+    scan_button.pack()
 
 
 def create_info_label(tool_frame, info_text):
@@ -142,13 +159,41 @@ def create_info_label(tool_frame, info_text):
 
 
 def port_scan(host, port_range, output_text):
-    # Implement port scanning functionality here
-    pass
+    try:
+        # Split the port range (e.g., "80-100") into start and end port numbers
+        start_port, end_port = map(int, port_range.split('-'))
+
+        output_text.delete(1.0, tk.END)  # Clear any previous output
+
+        for port in range(start_port, end_port + 1):
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.settimeout(1)  # Adjust the timeout as needed
+
+            result = sock.connect_ex((host, port))
+            if result == 0:
+                output_text.insert(tk.END, f"Port {port} is open\n")
+            sock.close()
+
+    except Exception as e:
+        output_text.insert(tk.END, f"An error occurred: {str(e)}\n")
 
 
 def vulnerability_scan(target_url, output_text):
-    # Implement vulnerability scanning functionality here
-    pass
+    try:
+        output_text.delete(1.0, tk.END)  # Clear any previous output
+        response = requests.get(target_url)
+
+        if response.status_code == 200:
+            output_text.insert(tk.END, "Target web application is online.\n")
+
+            # You can add vulnerability checks here based on the response content
+            # For example, check for common vulnerabilities like SQL injection, XSS, etc.
+
+        else:
+            output_text.insert(tk.END, f"Failed to connect to the target URL. Status code: {response.status_code}\n")
+
+    except Exception as e:
+        output_text.insert(tk.END, f"An error occurred: {str(e)}\n")
 
 
 def password_cracker(target_password, dictionary, output_text):
@@ -162,12 +207,43 @@ def start_password_cracking(target_password, dictionary_file, output_text):
 
 
 def network_sniffer(output_text):
-    # Implement network sniffing functionality here
-    pass
+    try:
+        output_text.delete(1.0, tk.END)  # Clear any previous output
+
+        # Define a packet capture function
+        def packet_capture(packet):
+            # Analyze and display packet information
+            packet_info = f"Packet: {packet.summary()}\n"
+            output_text.insert(tk.END, packet_info)
+
+        # Start sniffing on the default network interface
+        sniff(prn=packet_capture, filter="ip", count=10)  # Change the filter and count as needed
+
+    except Exception as e:
+        output_text.insert(tk.END, f"An error occurred: {str(e)}\n")
+
+
+def execute_sql_injection(target_url, sql_payload, output_text):
+    try:
+        # Send an HTTP request to the target URL with the SQL payload
+        response = requests.get(target_url + "?param=" + sql_payload)
+
+        # Check the response for SQL injection result
+        if "error" in response.text.lower():
+            output_text.insert(tk.END, "SQL Injection Detected!\n")
+        else:
+            output_text.insert(tk.END, "No SQL Injection Detected.\n")
+
+        # Display the response content for further analysis (you can remove this in a real tool)
+        output_text.insert(tk.END, "Response Content:\n")
+        output_text.insert(tk.END, response.text)
+
+    except Exception as e:
+        output_text.insert(tk.END, f"An error occurred: {str(e)}\n")
 
 
 app = tk.Tk()
-app.title("UtilityMaestero")
+app.title("UtilityMaestro")
 
 # Calculate the center position of the window
 screen_width = app.winfo_screenwidth()
@@ -181,10 +257,10 @@ app.geometry(f"{window_width}x{window_height}+{x}+{y}")
 access_frame = ttk.Frame(app)
 access_frame.pack(fill=tk.BOTH, expand=True)
 
-access_label = ttk.Label(access_frame, text="Enter Access Code", font=("Helvetica", 20))
+access_label = ttk.Label(access_frame, text="Welcome to UtilityMaestro", font=("Helvetica", 20))
 access_label.pack(pady=20)
 
-access_code_label = ttk.Label(access_frame, text="Access Code:")
+access_code_label = ttk.Label(access_frame, text="Enter Access Code:")
 access_code_label.pack()
 
 access_code_entry = ttk.Entry(access_frame, show="*")
@@ -192,5 +268,12 @@ access_code_entry.pack()
 
 access_button = ttk.Button(access_frame, text="Access Tools", command=authenticate_access)
 access_button.pack()
+
+# Add more information and features to the home screen
+info_label = ttk.Label(access_frame, text="This is a versatile utility suite. Please enter the access code to access the tools.")
+info_label.pack(pady=10)
+
+info_label = ttk.Label(access_frame, text="Created By IndulgeIn.", font=("Sans-serif", 7))
+info_label.pack()
 
 app.mainloop()
