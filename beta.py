@@ -303,7 +303,7 @@ info_label = ttk.Label(access_frame, text="This is a versatile utility suite. Pl
 info_label.pack(pady=10)
 
 info_label = ttk.Label(access_frame, text="Created By IndulgeIn."
-                                          "Version Version 0.223- Zenklaeta", font=("Sans-serif", 7))
+                                          "Version 0.998- Zenklaeta", font=("Sans-serif", 7))
 info_label.pack()
 
 app.mainloop()
