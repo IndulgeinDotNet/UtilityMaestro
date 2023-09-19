@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext, filedialog
 import socket
 import requests
+import pandas as pd  # Added pandas for Excel-like sorting
 from scapy.all import *
 
 # Define the correct access code
@@ -12,7 +13,7 @@ custom_tools = {
     "Port Scanner": "Scan open ports on a target system.",
     "Vulnerability Scanner": "Scan for common vulnerabilities in a web application.",
     "Password Cracker": "Brute force or dictionary attack on password hashes.",
-    "Network Sniffer": "Capture and analyze network traffic.",
+    "Network Sniffer": "Capture and analyze network traffic in a live, sortable way.",
     "SQL Injection Tool": "Test for SQL injection vulnerabilities in web applications."
 }
 
@@ -117,14 +118,19 @@ def create_password_cracker_tool(tool_frame):
     crack_button.pack()
 
 
+# ... (previous code) ...
+
 def create_network_sniffer_tool(tool_frame):
     tool_label = ttk.Label(tool_frame, text="Network Sniffer", font=("Helvetica", 16))
     tool_label.pack(pady=10)
 
-    packets_label = ttk.Label(tool_frame, text="Number of Packets to Sniff:")
-    packets_label.pack()
-    packets_entry = ttk.Entry(tool_frame)
-    packets_entry.pack()
+    start_sniff_button = ttk.Button(tool_frame, text="Start Sniffing",
+                                    command=lambda: start_network_sniffer(tool_frame))
+    start_sniff_button.pack()
+
+    stop_sniff_button = ttk.Button(tool_frame, text="Stop Sniffing", state=tk.DISABLED,
+                                   command=lambda: stop_network_sniffer(tool_frame))
+    stop_sniff_button.pack()
 
     save_checkbox_var = tk.IntVar()
     save_checkbox = ttk.Checkbutton(tool_frame, text="Save to File", variable=save_checkbox_var)
@@ -133,9 +139,55 @@ def create_network_sniffer_tool(tool_frame):
     output_text = scrolledtext.ScrolledText(tool_frame, wrap=tk.WORD, width=80, height=20)
     output_text.pack(padx=10, pady=10)
 
-    sniff_button = ttk.Button(tool_frame, text="Start Sniffing",
-                              command=lambda: network_sniffer(output_text, int(packets_entry.get()), save_checkbox_var.get()))
-    sniff_button.pack()
+    tool_frame.network_sniffer_output_text = output_text
+    tool_frame.network_sniffer_save_checkbox_var = save_checkbox_var
+    tool_frame.network_sniffer_start_button = start_sniff_button
+    tool_frame.network_sniffer_stop_button = stop_sniff_button
+
+
+# ... (previous code) ...
+
+def start_network_sniffer(tool_frame):
+    output_text = tool_frame.network_sniffer_output_text
+    save_to_file = tool_frame.network_sniffer_save_checkbox_var.get()
+    start_button = tool_frame.network_sniffer_start_button
+    stop_button = tool_frame.network_sniffer_stop_button
+
+    output_text.delete(1.0, tk.END)  # Clear any previous output
+
+    # Define a packet capture function
+    def packet_capture(packet):
+        # Analyze and display packet information
+        packet_info = f"Packet: {packet.summary()}\n"
+
+        if save_to_file:
+            with open("sniffer_output.txt", "a") as file:
+                file.write(packet_info)
+
+        # Insert the packet info at the end (bottom) of the text widget
+        output_text.insert(tk.END, packet_info)
+
+        # Scroll to the end (bottom) of the text widget
+        output_text.see(tk.END)
+
+    # Start sniffing on a separate thread
+    def sniff_thread():
+        start_button.configure(state=tk.DISABLED)
+        stop_button.configure(state=tk.NORMAL)
+        sniff(prn=packet_capture, filter="ip")
+
+    tool_frame.sniff_thread = threading.Thread(target=sniff_thread)
+    tool_frame.sniff_thread.daemon = True  # Daemonize the thread so it stops when the main app exits
+    tool_frame.sniff_thread.start()
+
+
+
+def stop_network_sniffer(tool_frame):
+    if hasattr(tool_frame, 'sniff_thread') and tool_frame.sniff_thread.is_alive():
+        tool_frame.sniff_thread.join(timeout=1)  # Wait for the sniffing thread to finish
+    tool_frame.network_sniffer_start_button.configure(state=tk.NORMAL)
+    tool_frame.network_sniffer_stop_button.configure(state=tk.DISABLED)
+
 
 
 # List of SQL injection payloads for testing purposes
@@ -223,33 +275,6 @@ def password_cracker(target_password, dictionary, output_text):
 def start_password_cracking(target_password, dictionary_file, output_text):
     # Implement password cracking startup functionality here
     pass
-
-
-def network_sniffer(output_text, packets_to_sniff, save_to_file):
-    try:
-        output_text.delete(1.0, tk.END)  # Clear any previous output
-
-        # Define a packet capture function
-        def packet_capture(packet):
-            nonlocal packets_to_sniff
-            if packets_to_sniff <= 0:
-                return
-
-            # Analyze and display packet information
-            packet_info = f"Packet: {packet.summary()}\n"
-            output_text.insert(tk.END, packet_info)
-
-            if save_to_file:
-                with open("sniffer_output.txt", "a") as file:
-                    file.write(packet_info)
-
-            packets_to_sniff -= 1
-
-        # Start sniffing on the default network interface
-        sniff(prn=packet_capture, filter="ip", count=packets_to_sniff)  # Change the filter and count as needed
-
-    except Exception as e:
-        output_text.insert(tk.END, f"An error occurred: {str(e)}\n")
 
 
 def execute_sql_injection(target_url, sql_payload, output_text):
