@@ -1,9 +1,8 @@
 import tkinter as tk
-from tkinter import ttk, messagebox, scrolledtext, filedialog
-import socket
+from tkinter import ttk, messagebox, scrolledtext
 import requests
-import pandas as pd  # Added pandas for Excel-like sorting
 from scapy.all import *
+import threading
 
 # Define the correct access code
 correct_access_code = "1234"
@@ -31,105 +30,57 @@ def authenticate_access():
 
 def open_tools():
     access_frame.pack_forget()  # Hide the access frame
-
-    # Create a notebook (tabbed interface) for tools
     notebook = ttk.Notebook(app)
     notebook.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
 
-    # Create frames for each tool and add them as tabs
     for tool_name in custom_tools:
         tool_frame = ttk.Frame(notebook)
         notebook.add(tool_frame, text=tool_name)
         tool_frames[tool_name] = tool_frame  # Store the tool frames for future use
 
         if tool_name == "Port Scanner":
-            create_port_scanner_tool(tool_frame)
+            create_tool(tool_frame, "Port Scanner", ["Target Host:", "Port Range (e.g., 80-100):"], port_scan)
         elif tool_name == "Vulnerability Scanner":
-            create_vulnerability_scanner_tool(tool_frame)
+            create_tool(tool_frame, "Vulnerability Scanner", ["Target URL:"], vulnerability_scan)
         elif tool_name == "Password Cracker":
-            create_password_cracker_tool(tool_frame)
+            create_tool(tool_frame, "Password Cracker", ["Target Password:", "Dictionary File:"], start_password_cracking)
         elif tool_name == "Network Sniffer":
             create_network_sniffer_tool(tool_frame)
         elif tool_name == "SQL Injection Tool":
-            create_sql_injection_tool(tool_frame)
+            create_tool(tool_frame, "SQL Injection Tool", ["Target URL:", "SQL Payload:"], execute_sql_injection)
         else:
             create_info_label(tool_frame, custom_tools[tool_name])
 
 
-def create_port_scanner_tool(tool_frame):
-    tool_label = ttk.Label(tool_frame, text="Port Scanner", font=("Helvetica", 16))
+def create_tool(tool_frame, tool_name, labels, command):
+    tool_label = ttk.Label(tool_frame, text=tool_name, font=("Helvetica", 16))
     tool_label.pack(pady=10)
 
-    host_label = ttk.Label(tool_frame, text="Target Host:")
-    host_label.pack()
-    host_entry = ttk.Entry(tool_frame)
-    host_entry.pack()
+    for label_text in labels:
+        label = ttk.Label(tool_frame, text=label_text)
+        label.pack()
 
-    port_range_label = ttk.Label(tool_frame, text="Port Range (e.g., 80-100):")
-    port_range_label.pack()
-    port_range_entry = ttk.Entry(tool_frame)
-    port_range_entry.pack()
+    entries = []
+    for label_text in labels:
+        entry = ttk.Entry(tool_frame)
+        entry.pack()
+        entries.append(entry)
 
     output_text = scrolledtext.ScrolledText(tool_frame, wrap=tk.WORD, width=40, height=10)
     output_text.pack(padx=10, pady=10)
 
-    scan_button = ttk.Button(tool_frame, text="Start Scan",
-                             command=lambda: port_scan(host_entry.get(), port_range_entry.get(), output_text))
+    scan_button = ttk.Button(tool_frame, text="Start", command=lambda: command(*[entry.get() for entry in entries], output_text))
     scan_button.pack()
 
-
-def create_vulnerability_scanner_tool(tool_frame):
-    tool_label = ttk.Label(tool_frame, text="Vulnerability Scanner", font=("Helvetica", 16))
-    tool_label.pack(pady=10)
-
-    target_label = ttk.Label(tool_frame, text="Target URL:")
-    target_label.pack()
-    target_entry = ttk.Entry(tool_frame)
-    target_entry.pack()
-
-    output_text = scrolledtext.ScrolledText(tool_frame, wrap=tk.WORD, width=40, height=10)
-    output_text.pack(padx=10, pady=10)
-
-    scan_button = ttk.Button(tool_frame, text="Start Scan",
-                             command=lambda: vulnerability_scan(target_entry.get(), output_text))
-    scan_button.pack()
-
-
-def create_password_cracker_tool(tool_frame):
-    tool_label = ttk.Label(tool_frame, text="Password Cracker", font=("Helvetica", 16))
-    tool_label.pack(pady=10)
-
-    password_label = ttk.Label(tool_frame, text="Target Password:")
-    password_label.pack()
-    password_entry = ttk.Entry(tool_frame)
-    password_entry.pack()
-
-    dictionary_label = ttk.Label(tool_frame, text="Dictionary File:")
-    dictionary_label.pack()
-    dictionary_entry = ttk.Entry(tool_frame)
-    dictionary_entry.pack()
-
-    output_text = scrolledtext.ScrolledText(tool_frame, wrap=tk.WORD, width=40, height=10)
-    output_text.pack(padx=10, pady=10)
-
-    crack_button = ttk.Button(tool_frame, text="Start Cracking",
-                              command=lambda: start_password_cracking(password_entry.get(), dictionary_entry.get(),
-                                                                      output_text))
-    crack_button.pack()
-
-
-# ... (previous code) ...
 
 def create_network_sniffer_tool(tool_frame):
     tool_label = ttk.Label(tool_frame, text="Network Sniffer", font=("Helvetica", 16))
     tool_label.pack(pady=10)
 
-    start_sniff_button = ttk.Button(tool_frame, text="Start Sniffing",
-                                    command=lambda: start_network_sniffer(tool_frame))
+    start_sniff_button = ttk.Button(tool_frame, text="Start Sniffing", command=lambda: start_network_sniffer(tool_frame))
     start_sniff_button.pack()
 
-    stop_sniff_button = ttk.Button(tool_frame, text="Stop Sniffing", state=tk.DISABLED,
-                                   command=lambda: stop_network_sniffer(tool_frame))
+    stop_sniff_button = ttk.Button(tool_frame, text="Stop Sniffing", state=tk.DISABLED, command=lambda: stop_network_sniffer(tool_frame))
     stop_sniff_button.pack()
 
     save_checkbox_var = tk.IntVar()
@@ -145,8 +96,6 @@ def create_network_sniffer_tool(tool_frame):
     tool_frame.network_sniffer_stop_button = stop_sniff_button
 
 
-# ... (previous code) ...
-
 def start_network_sniffer(tool_frame):
     output_text = tool_frame.network_sniffer_output_text
     save_to_file = tool_frame.network_sniffer_save_checkbox_var.get()
@@ -155,42 +104,33 @@ def start_network_sniffer(tool_frame):
 
     output_text.delete(1.0, tk.END)  # Clear any previous output
 
-    # Define a packet capture function
     def packet_capture(packet):
-        # Analyze and display packet information
         packet_info = f"Packet: {packet.summary()}\n"
 
         if save_to_file:
             with open("sniffer_output.txt", "a") as file:
                 file.write(packet_info)
 
-        # Insert the packet info at the end (bottom) of the text widget
         output_text.insert(tk.END, packet_info)
-
-        # Scroll to the end (bottom) of the text widget
         output_text.see(tk.END)
 
-    # Start sniffing on a separate thread
     def sniff_thread():
         start_button.configure(state=tk.DISABLED)
         stop_button.configure(state=tk.NORMAL)
         sniff(prn=packet_capture, filter="ip")
 
     tool_frame.sniff_thread = threading.Thread(target=sniff_thread)
-    tool_frame.sniff_thread.daemon = True  # Daemonize the thread so it stops when the main app exits
+    tool_frame.sniff_thread.daemon = True
     tool_frame.sniff_thread.start()
-
 
 
 def stop_network_sniffer(tool_frame):
     if hasattr(tool_frame, 'sniff_thread') and tool_frame.sniff_thread.is_alive():
-        tool_frame.sniff_thread.join(timeout=1)  # Wait for the sniffing thread to finish
+        tool_frame.sniff_thread.join(timeout=1)
     tool_frame.network_sniffer_start_button.configure(state=tk.NORMAL)
     tool_frame.network_sniffer_stop_button.configure(state=tk.DISABLED)
 
 
-
-# List of SQL injection payloads for testing purposes
 sql_injection_payloads = [
     "' OR '1'='1'; -- ",
     "' OR 1=1; -- ",
@@ -199,6 +139,7 @@ sql_injection_payloads = [
     "'; WAITFOR DELAY '0:0:5' --",
     "' AND 1=CONVERT(INT, (SELECT @@version)); --",
 ]
+
 
 def create_sql_injection_tool(tool_frame):
     tool_label = ttk.Label(tool_frame, text="SQL Injection Tool", font=("Helvetica", 16))
@@ -231,14 +172,13 @@ def create_info_label(tool_frame, info_text):
 
 def port_scan(host, port_range, output_text):
     try:
-        # Split the port range (e.g., "80-100") into start and end port numbers
         start_port, end_port = map(int, port_range.split('-'))
 
         output_text.delete(1.0, tk.END)  # Clear any previous output
 
         for port in range(start_port, end_port + 1):
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(1)  # Adjust the timeout as needed
+            sock.settimeout(1)
 
             result = sock.connect_ex((host, port))
             if result == 0:
@@ -256,10 +196,7 @@ def vulnerability_scan(target_url, output_text):
 
         if response.status_code == 200:
             output_text.insert(tk.END, "Target web application is online.\n")
-
             # You can add vulnerability checks here based on the response content
-            # For example, check for common vulnerabilities like SQL injection, XSS, etc.
-
         else:
             output_text.insert(tk.END, f"Failed to connect to the target URL. Status code: {response.status_code}\n")
 
@@ -279,16 +216,13 @@ def start_password_cracking(target_password, dictionary_file, output_text):
 
 def execute_sql_injection(target_url, sql_payload, output_text):
     try:
-        # Send an HTTP request to the target URL with the SQL payload
         response = requests.get(target_url + "?param=" + sql_payload)
 
-        # Check the response for SQL injection result
         if "error" in response.text.lower():
             output_text.insert(tk.END, "SQL Injection Detected!\n")
         else:
             output_text.insert(tk.END, "No SQL Injection Detected.\n")
 
-        # Display the response content for further analysis (you can remove this in a real tool)
         output_text.insert(tk.END, "Response Content:\n")
         output_text.insert(tk.END, response.text)
 
@@ -299,7 +233,6 @@ def execute_sql_injection(target_url, sql_payload, output_text):
 app = tk.Tk()
 app.title("UtilityMaestro")
 
-# Calculate the center position of the window
 screen_width = app.winfo_screenwidth()
 screen_height = app.winfo_screenheight()
 window_width = 800
@@ -323,12 +256,10 @@ access_code_entry.pack()
 access_button = ttk.Button(access_frame, text="Access Tools", command=authenticate_access)
 access_button.pack()
 
-# Add more information and features to the home screen
 info_label = ttk.Label(access_frame, text="This is a versatile utility suite. Please enter the access code to access the tools.")
 info_label.pack(pady=10)
 
-info_label = ttk.Label(access_frame, text="Created By IndulgeIn."
-                                          "Version 0.998- Zenklaeta", font=("Sans-serif", 7))
+info_label = ttk.Label(access_frame, text="Created By IndulgeIn. Version 0.998- Zenklaeta", font=("Sans-serif", 7))
 info_label.pack()
 
 app.mainloop()
