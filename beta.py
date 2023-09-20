@@ -138,7 +138,7 @@ def create_network_sniffer_tool(tool_frame):
     sniff_button.pack()
 
 
-# List of SQL injection payloads for testing purposes
+# List of SQL injection payloads will add more
 sql_injection_payloads = [
     "' OR '1'='1'; -- ",
     "' OR 1=1; -- ",
@@ -179,14 +179,14 @@ def create_info_label(tool_frame, info_text):
 
 def port_scan(host, port_range, output_text):
     try:
-        # Split the port range (e.g., "80-100") into start and end port numbers
+        # Split the port range (e.g., "80-100") 
         start_port, end_port = map(int, port_range.split('-'))
 
         output_text.delete(1.0, tk.END)  # Clear any previous output
 
         for port in range(start_port, end_port + 1):
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.settimeout(1)  # Adjust the timeout as needed
+            sock.settimeout(1)  #timeout
 
             result = sock.connect_ex((host, port))
             if result == 0:
@@ -205,8 +205,8 @@ def vulnerability_scan(target_url, output_text):
         if response.status_code == 200:
             output_text.insert(tk.END, "Target web application is online.\n")
 
-            # You can add vulnerability checks here based on the response content
-            # For example, check for common vulnerabilities like SQL injection, XSS, etc.
+            # i will add some vulnerabilit code
+            #  SQL injection, XSS, 
 
         else:
             output_text.insert(tk.END, f"Failed to connect to the target URL. Status code: {response.status_code}\n")
@@ -216,12 +216,12 @@ def vulnerability_scan(target_url, output_text):
 
 
 def password_cracker(target_password, dictionary, output_text):
-    # Implement password cracking functionality here
+    # Implement password cracking : soon
     pass
 
 
 def start_password_cracking(target_password, dictionary_file, output_text):
-    # Implement password cracking startup functionality here
+    # Implement password cracking startup 
     pass
 
 
@@ -274,7 +274,7 @@ def execute_sql_injection(target_url, sql_payload, output_text):
 app = tk.Tk()
 app.title("UtilityMaestro")
 
-# Calculate the center position of the window
+
 screen_width = app.winfo_screenwidth()
 screen_height = app.winfo_screenheight()
 window_width = 800
@@ -298,7 +298,7 @@ access_code_entry.pack()
 access_button = ttk.Button(access_frame, text="Access Tools", command=authenticate_access)
 access_button.pack()
 
-# Add more information and features to the home screen
+
 info_label = ttk.Label(access_frame, text="This is a versatile utility suite. Please enter the access code to access the tools.")
 info_label.pack(pady=10)
 
