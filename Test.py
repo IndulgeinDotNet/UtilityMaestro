@@ -3,7 +3,11 @@ from tkinter import ttk, messagebox, scrolledtext
 import threading
 import socket
 import requests
-from scapy.all import *
+import scapy.all
+from scapy.sendrecv import sniff
+from tkinter import IntVar, Checkbutton
+
+from urllib3.util import parse_url
 
 # Constants
 CORRECT_ACCESS_CODE = "1234"
@@ -67,7 +71,7 @@ def port_scan(host, port_range, output_text):
         output_text.delete(1.0, tk.END)
 
         for port in range(start_port, end_port + 1):
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock = scapy.all.socket.socket(scapy.all.socket.AF_INET, scapy.all.socket.SOCK_STREAM)
             sock.settimeout(1)
             result = sock.connect_ex((host, port))
             if result == 0:
@@ -158,63 +162,55 @@ def create_password_cracker_tool(tool_frame):
                   lambda: start_password_cracking(password_entry.get(), dictionary_entry.get(), result_text))
 
 
-# Function to create the Network Sniffer tool
+
 def create_network_sniffer_tool(tool_frame):
     create_label(tool_frame, "Network Sniffer", font=("Helvetica", 16), pady=10)
-    start_sniff_button = create_button(tool_frame, "Start Sniffing", lambda: start_network_sniffer(tool_frame))
-    stop_sniff_button = create_button(tool_frame, "Stop Sniffing", lambda: stop_network_sniffer(tool_frame))
-    save_checkbox_var = tk.IntVar()
-    save_checkbox = ttk.Checkbutton(tool_frame, text="Save to File", variable=save_checkbox_var)
-    save_checkbox.pack()
+
     output_text = create_scrolled_text(tool_frame, tk.WORD, 80, 20, padx=10, pady=10)
-
-    # Store relevant widgets in the tool_frame
-    tool_frame.network_sniffer_output_text = output_text
-    tool_frame.network_sniffer_save_checkbox_var = save_checkbox_var
-    tool_frame.network_sniffer_start_button = start_sniff_button  # Store start button reference
-    tool_frame.network_sniffer_stop_button = stop_sniff_button  # Store stop button reference
-
-    # Start button click event
-    start_sniff_button.configure(command=lambda: start_network_sniffer(tool_frame))
-
-
-# Function to start network sniffing
-def start_network_sniffer(tool_frame):
-    start_button = tool_frame.network_sniffer_start_button
-    stop_button = tool_frame.network_sniffer_stop_button
-    output_text = tool_frame.network_sniffer_output_text
-    save_to_file = tool_frame.network_sniffer_save_checkbox_var.get()
+    packet_list = []
 
     def packet_capture(packet):
         packet_info = f"Packet: {packet.summary()}\n"
-
-        if save_to_file:
-            with open("sniffer_output.txt", "a") as file:
-                file.write(packet_info)
-
+        packet_list.append(packet_info)
         output_text.insert(tk.END, packet_info)
         output_text.see(tk.END)
-        print(packet_info)  # Print packet information for debugging
 
-    def sniff_thread():
+    def start_sniffing():
+        nonlocal packet_list
+        packet_list = []  # Clear the packet list
+        output_text.delete(1.0, tk.END)  # Clear the output text
+        save_to_file = save_checkbox_var.get()
+
+        def sniff_thread():
+            sniff(prn=packet_capture, store=False)
+
+        if hasattr(tool_frame, 'sniff_thread') and tool_frame.sniff_thread.is_alive():
+            return
+
+        tool_frame.sniff_thread = threading.Thread(target=sniff_thread, daemon=True)
+        tool_frame.sniff_thread.start()
+
+        # Disable the start button after starting
         start_button.configure(state=tk.DISABLED)
+        # Enable the stop button
         stop_button.configure(state=tk.NORMAL)
-        sniff(prn=packet_capture, filter="ip")
 
-    if hasattr(tool_frame, 'sniff_thread') and tool_frame.sniff_thread.is_alive():
-        return
+    def stop_sniffing():
+        if hasattr(tool_frame, 'sniff_thread') and tool_frame.sniff_thread.is_alive():
+            tool_frame.sniff_thread.join(timeout=1)
 
-    tool_frame.sniff_thread = threading.Thread(target=sniff_thread)
-    tool_frame.sniff_thread.daemon = True
-    tool_frame.sniff_thread.start()
+        # Enable the start button after stopping
+        start_button.configure(state=tk.NORMAL)
+        # Disable the stop button
+        stop_button.configure(state=tk.DISABLED)
 
+    start_button = create_button(tool_frame, "Start Sniffing", start_sniffing)
+    stop_button = create_button(tool_frame, "Stop Sniffing", stop_sniffing)
+    stop_button.configure(state=tk.DISABLED)
 
-# Function to stop network sniffing
-def stop_network_sniffer(tool_frame):
-    if hasattr(tool_frame, 'sniff_thread') and tool_frame.sniff_thread.is_alive():
-        tool_frame.sniff_thread.join(timeout=1)
-    tool_frame.network_sniffer_start_button.configure(state=tk.NORMAL)
-    tool_frame.network_sniffer_stop_button.configure(state=tk.DISABLED)
+    save_checkbox_var = IntVar()
+    save_checkbox = Checkbutton(tool_frame, text="Save to File", variable=save_checkbox_var)
+    save_checkbox.pack()
 
 
 # Function to authenticate access
