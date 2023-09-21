@@ -1,11 +1,11 @@
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
 import threading
-import socket
 import requests
 import scapy.all
 from scapy.sendrecv import sniff
-from tkinter import IntVar, Checkbutton
+import urllib.parse
+
 
 from urllib3.util import parse_url
 
@@ -74,15 +74,17 @@ sql_injection_payloads = [
         "description": "Attempt to cast the version information to an integer.",
     },
 ]
-
-
-
 # Function to create a tool frame
 def create_tool_frame(tool_name, notebook):
     tool_frame = ttk.Frame(notebook)
     notebook.add(tool_frame, text=tool_name)
     return tool_frame
 
+def update_access_button_state():
+    if acknowledgment_accepted.get():
+        access_button.configure(state=tk.NORMAL)
+    else:
+        access_button.configure(state=tk.DISABLED)
 
 # Function to create a label
 def create_label(parent, text, font=None, pady=0):
@@ -159,7 +161,10 @@ def start_password_cracking(target_password, dictionary_file, output_text):
 # Function to execute SQL injection testing
 def execute_sql_injection(target_url, sql_payload, output_text):
     try:
-        response = requests.get(target_url + "?param=" + sql_payload)
+        encoded_payload = urllib.parse.quote(sql_payload)
+        full_url = target_url + "?param=" + encoded_payload
+
+        response = requests.get(full_url)
 
         if "error" in response.text.lower():
             output_text.insert(tk.END, "SQL Injection Detected!\n")
@@ -213,20 +218,24 @@ def create_password_cracker_tool(tool_frame):
 def create_network_sniffer_tool(tool_frame):
     create_label(tool_frame, "Network Sniffer", font=("Helvetica", 16), pady=10)
 
-    output_text = create_scrolled_text(tool_frame, tk.WORD, 80, 20, padx=10, pady=10)
+    output_tree = ttk.Treeview(tool_frame, columns=("Packet Info",), show="headings")
+    output_tree.heading("Packet Info", text="Packet Info")
+    output_tree.column("Packet Info", width=800)
+    output_tree.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
+
     packet_list = []
 
     def packet_capture(packet):
         if not stop_sniffing_flag:
-            packet_info = f"Packet: {packet.summary()}\n"
+            packet_info = packet.summary()
             packet_list.append(packet_info)
-            output_text.insert(tk.END, packet_info)
-            output_text.see(tk.END)
+            output_tree.insert("", "end", values=(packet_info,))
+            output_tree.see(output_tree.get_children()[-1])  # Scroll to the latest packet
 
     def start_sniffing():
         nonlocal packet_list
         packet_list = []  # Clear the packet list
-        output_text.delete(1.0, tk.END)  # Clear the output text
+        output_tree.delete(*output_tree.get_children())  # Clear the output tree
         save_to_file = save_checkbox_var.get()
 
         def sniff_thread():
@@ -261,20 +270,19 @@ def create_network_sniffer_tool(tool_frame):
     stop_button = create_button(tool_frame, "Stop Sniffing", stop_sniffing)
     stop_button.configure(state=tk.DISABLED)
 
-    save_checkbox_var = IntVar()
-    save_checkbox = Checkbutton(tool_frame, text="Save to File", variable=save_checkbox_var)
+    save_checkbox_var = tk.IntVar()
+    save_checkbox = ttk.Checkbutton(tool_frame, text="Save to File", variable=save_checkbox_var)
     save_checkbox.pack()
 
 
-
-# Function to authenticate access
 def authenticate_access():
     entered_access_code = access_code_entry.get()
-    if entered_access_code == CORRECT_ACCESS_CODE:
+    if entered_access_code == CORRECT_ACCESS_CODE and acknowledgment_accepted.get():
         open_tools()
+    elif not acknowledgment_accepted.get():
+        messagebox.showerror("Acknowledgment Required", "You must accept the acknowledgment before accessing the tools.")
     else:
         messagebox.showerror("Access Code Error", "Incorrect access code")
-
 
 # Function to open the toolset
 def open_tools():
@@ -358,6 +366,10 @@ x = (screen_width - window_width) // 2
 y = (screen_height - window_height) // 2
 app.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
+# Create a custom style for the red text
+custom_style = ttk.Style()
+custom_style.configure("Red.TCheckbutton", foreground="red")
+
 access_frame = ttk.Frame(app)
 access_frame.pack(fill=tk.BOTH, expand=True)
 
@@ -379,5 +391,16 @@ info_label.pack(pady=10)
 
 info_label = ttk.Label(access_frame, text="Created By IndulgeIn. Version 0.998- Zenklaeta", font=("Sans-serif", 7))
 info_label.pack()
+acknowledgment_accepted = tk.BooleanVar(value=False)
+
+acknowledgment_checkbox = ttk.Checkbutton(
+    access_frame,
+    text=("By using UtilityMaestro, you agree to use it legally, "
+          "the creator is not liable for any misuse or damages you create!"),
+    variable=acknowledgment_accepted,
+    command=update_access_button_state,
+    style="Red.TCheckbutton",  # Apply the custom style
+)
+acknowledgment_checkbox.pack()
 
 app.mainloop()
