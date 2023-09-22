@@ -1,6 +1,6 @@
 # UtilityMaestro
+<img width="739" alt="maestro" src="https://github.com/IndulgeinDotNet/UtilityMaestro/assets/125331271/b5abd195-0fa0-4064-81c5-abe331028c27">
 
-![UtilityMaestro Logo]](http://www.indulgein.net/wp-content/uploads/2023/09/maestro.png)
 
 Unleash Your Power Tools! Experience the ultimate control over your digital toolkit with UtilityMaestro.
 
