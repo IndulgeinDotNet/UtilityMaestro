@@ -1,4 +1,4 @@
-# UtilityMaestro - A Python Network Utility Application
+# UtilityMaestro - A Network Utility Application
 <img width="739" alt="maestro" src="https://github.com/IndulgeinDotNet/UtilityMaestro/assets/125331271/e5f6c82b-7fa7-4a66-86b2-b2a52f48a3dc">
 
 - [Overview](#overview)
@@ -14,7 +14,7 @@
 
 ## Overview
 
-UtilityMaestro is a Python-based network utility application that provides various network tool features, including network packet sniffing, real-time analysis, packet detail viewing, packet color highlighting, and packet search functionality. This application demonstrates the capabilities of Python and offers a downloadable executable for ease of use.
+UtilityMaestro is a Python-based network utility application that provides various network tool features. This application demonstrates the capabilities of Python and offers a downloadable executable for ease of use.
 
 ## Features
 
