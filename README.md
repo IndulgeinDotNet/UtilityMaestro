@@ -1,6 +1,6 @@
 # UtilityMaestro
 
-![UtilityMaestro Logo](link_to_your_logo.png)
+![UtilityMaestro Logo]](http://www.indulgein.net/wp-content/uploads/2023/09/maestro.png)
 
 Unleash Your Power Tools! Experience the ultimate control over your digital toolkit with UtilityMaestro.
 
