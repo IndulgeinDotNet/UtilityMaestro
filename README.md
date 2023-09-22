@@ -1,36 +1,92 @@
-# UtilityMaestro
-<img width="739" alt="maestro" src="https://github.com/IndulgeinDotNet/UtilityMaestro/assets/125331271/b5abd195-0fa0-4064-81c5-abe331028c27">
+# UtilityMaestro - A Python Network Utility Application
+<img width="739" alt="maestro" src="https://github.com/IndulgeinDotNet/UtilityMaestro/assets/125331271/e5f6c82b-7fa7-4a66-86b2-b2a52f48a3dc">
 
-
-Unleash Your Power Tools! Experience the ultimate control over your digital toolkit with UtilityMaestro.
-
-## Table of Contents
-
-- [Introduction](#introduction)
+- [Overview](#overview)
 - [Features](#features)
-- [Installation](#installation)
-- [Getting Started](#getting-started)
+  - [Port Scanner](#port-scanner)
+  - [Vulnerability Scanner](#vulnerability-scanner)
+  - [Password Cracker](#password-cracker)
+  - [Network Sniffer](#network-sniffer)
+  - [SQL Injection Tool](#sql-injection-tool)
+- [Responsible and Ethical Use](#responsible-and-ethical-use)
 - [Usage](#usage)
-- [Pen Testing Tools](#pen-testing-tools)
-- [Utility Tools](#utility-tools)
-- [Other Tools](#other-tools)
-- [Contributing](#contributing)
 - [License](#license)
+- [Author](#author)
 
-## Introduction
+## Overview
 
-UtilityMaestro is a versatile suite of tools that caters to both pen testers and PC power users. It provides essential utility tools for enhancing productivity and white-hat hacker tools for security professionals.  These Tools are custom written never released tools combined in one program. W̴̴h̴̴e̴̴t̴̴h̴̴e̴̴r̴ ̴y̴̴o̴̴u̴'̴r̴̴e̴ ̴p̴̴e̴̴r̴̴f̴̴o̴̴r̴̴m̴̴i̴̴n̴̴g̴ ̴s̴̴e̴̴c̴̴u̴̴r̴̴i̴̴t̴̴y̴ a̴̴s̴̴s̴̴e̴̴s̴̴s̴̴m̴̴e̴̴n̴̴t̴̴s̴ ̴o̴̴r̴ ------- , UtilityMaestro has got you covered.
+UtilityMaestro is a Python-based network utility application that provides various network tool features, including network packet sniffing, real-time analysis, packet detail viewing, packet color highlighting, and packet search functionality. This application demonstrates the capabilities of Python and offers a downloadable executable for ease of use.
 
 ## Features
 
-- **Cross-Platform:** Works seamlessly on Windows, macOS, and Linux.
-- **Optimization Tools:** TBD
-- **Security Toolkit:** Includes a range of white-hat hacker tools for penetration testing and security assessments.
+### Port Scanner
 
-## Installation
+- **Description**: Scan open ports on a target system.
+- **Usage**: Identify open ports on a target host within a specified port range.
 
-To get started with UtilityMaestro, follow these installation instructions. Make sure you have [Prerequisite Software] installed.
+The Port Scanner tool is designed to help users identify open ports on a target system. It can be used for network troubleshooting, security assessment, and identifying potential vulnerabilities. However, it should always be used responsibly and with the necessary permissions.
 
-TBD
+### Vulnerability Scanner
 
+- **Description**: Scan for common vulnerabilities in a web application.
+- **Usage**: Detect common security vulnerabilities in web applications, such as remote code execution and SQL injection.
+
+The Vulnerability Scanner is a powerful tool for identifying security issues in web applications. It can detect common vulnerabilities like remote code execution, SQL injection, and more. Users should exercise caution and ensure they have proper authorization before scanning websites.
+
+### Password Cracker
+
+- **Description**: Brute force or dictionary attack on password hashes.
+- **Usage**: Attempt to crack password hashes using brute force or dictionary attack methods.
+
+The Password Cracker tool is intended for testing the strength of password hashes. It can be used for security assessments and penetration testing but should never be used for unauthorized access or malicious purposes.
+
+### Network Sniffer
+
+- **Description**: Capture and analyze network traffic in a live, sortable way.
+- **Usage**: Capture and analyze network packets in real-time, perform real-time analysis, view packet details, highlight packets, and search for specific packets.
+
+The Network Sniffer tool allows users to capture and analyze network traffic in real-time. It provides features like real-time analysis, packet detail viewing, packet highlighting, and packet search. Users should ensure they have the necessary legal permissions before using this tool.
+
+### SQL Injection Tool
+
+- **Description**: Test for SQL injection vulnerabilities in web applications.
+- **Usage**: Test web applications for SQL injection vulnerabilities using predefined payloads, view results, and analyze responses.
+
+The SQL Injection Tool is designed for testing web applications for SQL injection vulnerabilities. It uses predefined payloads to check for vulnerabilities and provides insights into the results. It should only be used on web applications with proper authorization.
+
+## Responsible and Ethical Use
+
+UtilityMaestro's network tools are powerful and versatile, but they should always be used legally and ethically. Here are some important guidelines:
+
+- **Authorization**: Ensure that you have proper authorization before scanning or testing any network or web application. Unauthorized scanning or testing may violate laws and regulations.
+
+- **Privacy**: Respect the privacy of individuals and organizations. Do not intercept or analyze network traffic without consent.
+
+- **Data Protection**: Be mindful of data protection laws and regulations when handling sensitive information.
+
+- **Reporting**: If you discover vulnerabilities during your testing, report them responsibly to the relevant parties so they can address and rectify the issues.
+
+## Usage
+
+1. **Download and Run the Executable**:
+
+   - Visit the [Releases](https://github.com/yourusername/UtilityMaestro/releases) page to download the executable for your platform (Windows, macOS, or Linux).
+
+   - Run the executable to launch UtilityMaestro.
+
+2. **Access the Network Utility Features**:
+
+   - Enter the correct access code to unlock the network utility features.
+
+3. **Utilize the Network Tools**:
+
+   - Use the provided network tools to perform network analysis, capture packets, and analyze network traffic in real-time.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+[Your Name](https://github.com/yourusername)
 
