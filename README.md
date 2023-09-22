@@ -10,7 +10,6 @@
   - [SQL Injection Tool](#sql-injection-tool)
 - [Responsible and Ethical Use](#responsible-and-ethical-use)
 - [Usage](#usage)
-- [License](#license)
 - [Author](#author)
 
 ## Overview
@@ -84,9 +83,9 @@ UtilityMaestro's network tools are powerful and versatile, but they should alway
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is not licenced [Read More](https://github.com/IndulgeinDotNet/UtilityMaestro/blob/main/Private)
 
 ## Author
 
-[Your Name](https://github.com/yourusername)
+[Your Name](https://github.com/indulgeinDOTnet)
 
