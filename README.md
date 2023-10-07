@@ -1,6 +1,6 @@
 # UtilityMaestro - A Network Utility Application
 <img width="739" alt="maestro" src="https://github.com/IndulgeinDotNet/UtilityMaestro/assets/125331271/e5f6c82b-7fa7-4a66-86b2-b2a52f48a3dc">
-
+THIS PROJECT VERSION BETA WRITTEN IN PYTHTON WILL BECOME OPEN SOURCE SOON. THE OFICIAL PROJECT IS STILL IN DEVELOPMENT AND IS WRITTEN IN C#.
 - [Overview](#overview)
 - [Features](#features)
   - [Port Scanner](#port-scanner)
