@@ -16,7 +16,8 @@ WORK HAS GOTTEN IN THE WAY OF THIS PROJECT RECENTLY AMD THE V1 SHOULD BE COMPLET
 
 ## Overview
 
-UtilityMaestro is a Python-based network utility application that provides various network tool features. This application demonstrates the capabilities of Python and offers a downloadable executable for ease of use.
+UtilityMaestro BETA is a Python-based network utility application that provides various network tool features. This application demonstrates the capabilities of Python and offers a downloadable executable for ease of use.
+THE MAIN VERSION IS WRITTEN IN C#
 
 ## Features
 
