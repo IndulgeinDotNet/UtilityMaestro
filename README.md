@@ -1,7 +1,7 @@
 # UtilityMaestro - A Network Utility Application
 <img width="739" alt="maestro" src="https://github.com/IndulgeinDotNet/UtilityMaestro/assets/125331271/e5f6c82b-7fa7-4a66-86b2-b2a52f48a3dc">
 THE BETA VERSION OF THIS PROJECT WRITTEN IN PYTHON WILL BECOME OPEN SOURCE SOON. THE OFFICIAL PROJECT IS STILL UNDER DEVELOPMENT AND IS WRITTEN IN C#.
-WORK HAS GOTTEN IN THE WAY OF THIS PROJECT RECENTLY AMD THE V1 SHOULD BE COMPLETE BY NOVEMBER WEEK 2.
+WORK HAS GOTTEN IN THE WAY OF THIS PROJECT RECENTLY AMD THE V1 SHOULD BE COMPLETE BY DECEMBER WEEK 1.
 
 - [Overview](#overview)
 - [Features](#features)
@@ -90,5 +90,5 @@ This project is not licenced [Read More](https://github.com/IndulgeinDotNet/Util
 
 ## Author
 
-[Your Name](https://github.com/indulgeinDOTnet)
+[INDDOTNET](https://github.com/indulgeinDOTnet)
 
