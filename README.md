@@ -1,7 +1,6 @@
 # UtilityMaestro - A Network Utility Application
 <img width="739" alt="maestro" src="https://github.com/IndulgeinDotNet/UtilityMaestro/assets/125331271/e5f6c82b-7fa7-4a66-86b2-b2a52f48a3dc">
-THE BETA VERSION OF THIS PROJECT WRITTEN IN PYTHON WILL BECOME OPEN SOURCE SOON. THE OFFICIAL PROJECT IS STILL UNDER DEVELOPMENT AND IS WRITTEN IN C#.
-WORK HAS GOTTEN IN THE WAY OF THIS PROJECT RECENTLY AMD THE V1 SHOULD BE COMPLETE BY DECEMBER WEEK 1.
+**This projects first beta has been released! After a year of work and some behind the scenes work we have developed the first Beta Version.**
 
 - [Overview](#overview)
 - [Features](#features)
@@ -16,8 +15,8 @@ WORK HAS GOTTEN IN THE WAY OF THIS PROJECT RECENTLY AMD THE V1 SHOULD BE COMPLET
 
 ## Overview
 
-UtilityMaestro BETA is a Python-based network utility application that provides various network tool features. This application demonstrates the capabilities of Python and offers a downloadable executable for ease of use.
-THE MAIN VERSION IS WRITTEN IN C#
+UtilityMaestro is a  network utility application that provides various network tool features. This application demonstrates the capabilities of Python and offers a downloadable executable for ease of use.
+=
 
 ## Features
 
