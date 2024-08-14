@@ -18,7 +18,7 @@
 
 UtilityMaestro is a  network utility application that provides various network tool features.
 =
-The Access Code For the website can be obtained by accesing
+The Access Code is currently unavailable for the public.
 ## Features
 
 ### Port Scanner
