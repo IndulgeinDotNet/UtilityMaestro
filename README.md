@@ -16,7 +16,7 @@
 
 ## Overview
 
-UtilityMaestro is a  network utility application that provides various network tool features. This application demonstrates the capabilities of Python and offers a downloadable executable for ease of use.
+UtilityMaestro is a  network utility application that provides various network tool features.
 =
 
 ## Features
