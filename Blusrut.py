@@ -8,7 +8,7 @@ import urllib.parse
 import re
 from PIL import Image, ImageTk
 import app
-
+ 
 
 keywords_to_highlight = ["error", "success", "warning", "critical"]
 # Constants
