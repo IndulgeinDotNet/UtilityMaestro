@@ -92,7 +92,7 @@ Network Sniffer
 ![image](https://github.com/user-attachments/assets/e1c22e5e-bf5c-4cb0-8da0-1760165357ef)
 SQL InJ
 ![image](https://github.com/user-attachments/assets/640ec4ce-54c2-49e7-87f3-dd84df39ad94)
-![Uploading image.png…]()
+
 
 
 ## License
