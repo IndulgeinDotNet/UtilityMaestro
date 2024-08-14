@@ -79,6 +79,7 @@ UtilityMaestro's network tools are powerful and versatile, but they should alway
 2. **Access the Network Utility Features**:
 
    - Enter the correct access code to unlock the network utility features.
+     **CURRENTLY UNAVAILABLE. A server will be setup to provide you with a ACCESS CODE.**
 
 3. **Utilize the Network Tools**:
 
