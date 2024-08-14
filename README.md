@@ -72,7 +72,7 @@ UtilityMaestro's network tools are powerful and versatile, but they should alway
 
 1. **Download and Run the Executable**:
 
-   - Visit the [Releases](https://github.com/yourusername/UtilityMaestro/releases) page to download the executable for your platform (Windows, macOS, or Linux).
+   - Visit the [Releases](https://github.com/IndulgeinDotNet/UtilityMaestro/releases) page to download the executable for your platform (Windows, macOS, or Linux).
 
    - Run the executable to launch UtilityMaestro.
 
