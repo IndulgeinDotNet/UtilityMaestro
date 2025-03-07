@@ -5,6 +5,39 @@ UtilityMaestro - A Comprehensive Cybersecurity Toolkit
 --
 The first beta of UtilityMaestro has been released! After a year of development and behind-the-scenes refinements, we’re excited to unveil Beta Version 3.0.
 
+Usage
+**Download and Run the Executable:**
+
+WINPCAP must be installed as a prerequesite.
+[Download WINPCAP](https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe)
+
+Download WINPCAP from the link above. once installed, download and open the Utility Maestro Executable and all tools should be available.
+[Download Utility Maestro](https://github.com/IndulgeinDotNet/UtilityMaestro/releases/edit/Beta)
+
+Grab** UtilityMaestro_v3.0.zi**p from the Releases page (Windows only for now—macOS/Linux support pending).
+
+Extract the .zip to a folder (e.g., C:\Users\YourName\Downloads\UtilityMaestro\).
+
+Handle Windows Defender (if flagged):
+
+If Defender blocks UtilityMaestro.exe:
+
+**Open Windows Security > Virus & threat protection.
+
+Under “Current threats,” find UtilityMaestro.exe > Actions > Allow on device.
+
+Or add an exclusion: Manage settings > Add or remove exclusions > Add an exclusion > File > Select UtilityMaestro.exe.**
+
+Note: This is a false positive due to network/file operations.
+
+Launch the Application:
+
+Double-click UtilityMaestro.exe.
+
+For network tools, right-click > Run as administrator.
+
+Enter access code 1234 and check the ethical use box to unlock features.
+
 Overview
 Features
 Port Scanner
@@ -111,36 +144,7 @@ Responsible Disclosure: Report discovered vulnerabilities to system owners promp
 
 Misuse can lead to legal consequences. Use UtilityMaestro only for authorized security testing.
 
-Usage
-**Download and Run the Executable:**
 
-WINPCAP must be installed as a prerequesite.
-[Download WINPCAP](https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe)
-Download WINPCAP from the link above. once installed, download and open the Utility Maestro Executable and all tools should be available.
-[Download Utility Maestro](https://github.com/IndulgeinDotNet/UtilityMaestro/releases/edit/Beta)
-Grab** UtilityMaestro_v3.0.zi**p from the Releases page (Windows only for now—macOS/Linux support pending).
-
-Extract the .zip to a folder (e.g., C:\Users\YourName\Downloads\UtilityMaestro\).
-
-Handle Windows Defender (if flagged):
-
-If Defender blocks UtilityMaestro.exe:
-
-**Open Windows Security > Virus & threat protection.
-
-Under “Current threats,” find UtilityMaestro.exe > Actions > Allow on device.
-
-Or add an exclusion: Manage settings > Add or remove exclusions > Add an exclusion > File > Select UtilityMaestro.exe.**
-
-Note: This is a false positive due to network/file operations.
-
-Launch the Application:
-
-Double-click UtilityMaestro.exe.
-
-For network tools, right-click > Run as administrator.
-
-Enter access code 1234 and check the ethical use box to unlock features.
 
 Explore the Tools:
 
