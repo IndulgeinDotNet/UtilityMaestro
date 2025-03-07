@@ -92,7 +92,7 @@ This tool probes for vulnerabilities like remote code execution and injection at
 
 
 
-**Password Cracke**
+**Password Cracker**
 
 Description: Cracks MD5, SHA1, and SHA256 hashes using brute force or dictionary attacks.
 
