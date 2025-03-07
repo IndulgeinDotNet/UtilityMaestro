@@ -128,10 +128,4 @@ Developed by INDDOTNET.
 
 Questions? Contributions? Reach out on GitHub!
 
-Key Improvements
-Updated Version: Reflects v3.0 with 25+ tools.
-Streamlined Structure: Clear sections, concise feature descriptions.
-Ethical Focus: Stronger legal/ethical warnings.
-Usage Clarity: Detailed .exe instructions with Defender workaround.
-Screenshots: Kept as-is, formatted cleanly.
-Future Hints: Noted macOS/Linux and access code server plans.
+
