@@ -187,7 +187,7 @@ Misuse can lead to legal consequences. Use UtilityMaestro only for authorized se
 
 License
 
-**UtilityMaestro is currently unlicensed. See [EULA](https://github.com/IndulgeinDotNet/UtilityMaestro/blob/main/EULA)** **for details**
+**UtilityMaestro is proprietary software provided under a custom End-User License Agreement (EULA). It is not open source, and redistribution is strictly prohibited. You may use the executable as provided by INDDOTNET for personal, non-commercial purposes only, subject to the terms outlined in the EULA. See [EULA](https://github.com/IndulgeinDotNet/UtilityMaestro/blob/main/EULA)** **for details**
 
 Author
 
