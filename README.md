@@ -59,68 +59,92 @@ Additional Tools
 UtilityMaestro v3.0 includes 20+ more tools, such as:
 
 File Downloader: Downloads files with proxy support.
+
 DNS Resolver: Resolves domains with spoofing detection.
+
 Hash Generator: Creates MD5, SHA1, SHA256 hashes.
+
 Base64 Encoder: Encodes/decodes text.
+
 Ping Tool: Pings hosts with custom TTL and size.
+
 Exploit Launcher: Launches real exploits (e.g., EternalBlue, Heartbleed).
+
 Packet Injector: Sends custom TCP/UDP packets.
+
 Phishing Simulator: Sends test phishing emails via SMTP.
+
 ARP Spoofer: Intercepts traffic via ARP poisoning.
+
 Shellshock Exploit: Tests CVE-2014-6271.
+
 Heartbleed Exploit: Exploits CVE-2014-0160.
+
 EternalBlue Exploit: Targets CVE-2017-0144.
+
 Reverse Shell: Establishes remote shells.
+
 Keylogger: Logs keystrokes locally (test only).
+
 WiFi Scanner: Enumerates nearby networks.
+
 Privilege Escalation: Attempts local privilege checks.
+
 Backdoor Installer: Deploys test backdoors.
+
 XSS Injector: Injects XSS payloads.
+
 CSRF Tester: Tests for CSRF vulnerabilities.
+
 Brute Forcer: Attacks HTTP, FTP, SSH logins.
+
 Responsible and Ethical Use
 UtilityMaestro is a potent toolset—use it responsibly:
 
 Authorization: Obtain explicit permission before testing any system or network. Unauthorized use may violate laws like the CFAA (US) or local equivalents.
+
 Privacy: Do not intercept or analyze traffic without consent—respect user privacy.
+
 Data Protection: Handle sensitive data per applicable laws (e.g., GDPR, CCPA).
+
 Responsible Disclosure: Report discovered vulnerabilities to system owners promptly and ethically.
+
 Misuse can lead to legal consequences. Use UtilityMaestro only for authorized security testing.
 
 Usage
 **Download and Run the Executable:**
+
 Grab** UtilityMaestro_v3.0.zi**p from the Releases page (Windows only for now—macOS/Linux support pending).
+
 Extract the .zip to a folder (e.g., C:\Users\YourName\Downloads\UtilityMaestro\).
+
 Handle Windows Defender (if flagged):
+
 If Defender blocks UtilityMaestro.exe:
+
 **Open Windows Security > Virus & threat protection.
+
 Under “Current threats,” find UtilityMaestro.exe > Actions > Allow on device.
+
 Or add an exclusion: Manage settings > Add or remove exclusions > Add an exclusion > File > Select UtilityMaestro.exe.**
+
 Note: This is a false positive due to network/file operations.
+
 Launch the Application:
+
 Double-click UtilityMaestro.exe.
+
 For network tools, right-click > Run as administrator.
+
 Enter access code 1234 and check the ethical use box to unlock features.
+
 Explore the Tools:
+
 Use the scrollable sidebar to access all 25+ tools.
+
 Follow each tool’s help prompt for specific usage.
+
 Note: **Access codes are currently static (1234**). A server for dynamic codes is in development.
-
-Screenshots
-Login Screen
-
-
-
-Vulnerability Scanner
-
-
-
-Network Sniffer
-
-
-
-SQL Injection Tool
-
 
 
 License
