@@ -187,7 +187,7 @@ Misuse can lead to legal consequences. Use UtilityMaestro only for authorized se
 
 License
 
-**UtilityMaestro is currently unlicensed. See Private for details.**
+**UtilityMaestro is currently unlicensed. See [Private for details](https://github.com/IndulgeinDotNet/UtilityMaestro/blob/main/Private)**
 
 Author
 
