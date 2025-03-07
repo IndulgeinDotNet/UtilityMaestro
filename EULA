@@ -1,3 +1,53 @@
-This software is proprietary and not open source. All rights are reserved by the author, 
-and no permission is granted for distribution, modification,
-or use beyond the terms explicitly provided in the accompanying license or documentation.
+UtilityMaestro End-User License Agreement (EULA)
+Version 3.0 - March 07, 2025
+
+Copyright © 2025 INDDOTNET. All rights reserved.
+
+This End-User License Agreement ("EULA") is a legal agreement between you ("Licensee" or "you") and INDDOTNET ("Licensor"), the developer and owner of UtilityMaestro v3.0 ("Software"). By downloading, installing, or using the Software, you agree to be bound by the terms of this EULA. If you do not agree, do not use the Software.
+
+1. GRANT OF LICENSE
+   1.1 Licensor grants you a non-exclusive, non-transferable, revocable license to use the Software in executable form only, solely for personal, non-commercial purposes, subject to the terms and conditions herein.
+   1.2 The Software is provided as a compiled executable (e.g., UtilityMaestro.exe) and does not include source code.
+
+2. RESTRICTIONS
+   2.1 Redistribution: You may not redistribute, sell, lease, lend, sublicense, or otherwise distribute the Software to any third party. Distribution is permitted only by Licensor via official channels (e.g., GitHub releases).
+   2.2 Modification: You may not modify, adapt, translate, or create derivative works from the Software.
+   2.3 Reverse Engineering: You may not reverse-engineer, decompile, disassemble, or attempt to derive the source code or underlying structure of the Software, except as permitted by applicable law.
+   2.4 Commercial Use: Use of the Software for commercial purposes (e.g., paid services, enterprise testing) is prohibited without prior written consent from Licensor.
+   2.5 Unauthorized Use: You may not use the Software for any illegal or unauthorized purpose, including but not limited to unauthorized network testing or data interception.
+
+3. OWNERSHIP AND INTELLECTUAL PROPERTY
+   3.1 The Software is proprietary to INDDOTNET and protected by copyright and other intellectual property laws.
+   3.2 This is not an open-source product. No rights to the source code are granted, and all rights not expressly granted herein are reserved by Licensor.
+   3.3 "UtilityMaestro" and associated logos or trademarks (if any) are the property of INDDOTNET.
+
+4. USAGE CONDITIONS
+   4.1 Ethical Use: The Software is intended for ethical cybersecurity testing and network analysis on systems where you have explicit authorization. Unauthorized use may violate laws such as the Computer Fraud and Abuse Act (CFAA) or local equivalents.
+   4.2 Prerequisites: Certain features (e.g., Network Sniffer) require third-party software like WinPcap, which you must install separately under its own license terms.
+   4.3 Feedback: As a beta product, you are encouraged to provide feedback to Licensor via GitHub (https://github.com/IndulgeinDotNet/UtilityMaestro/issues), but no support is guaranteed.
+
+5. NO WARRANTY
+   5.1 The Software is provided "as is," without warranties of any kind, express or implied, including but not limited to merchantability, fitness for a particular purpose, or non-infringement.
+   5.2 Licensor does not guarantee the Software will be error-free, secure, or meet your specific needs. Beta versions may contain bugs or incomplete features.
+
+6. LIMITATION OF LIABILITY
+   6.1 To the fullest extent permitted by law, INDDOTNET shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from the use or inability to use the Software, even if advised of the possibility of such damages.
+   6.2 This includes, but is not limited to, damages from data loss, legal violations, or system harm caused by misuse.
+
+7. TERMINATION
+   7.1 This license terminates automatically if you breach any term of this EULA.
+   7.2 Upon termination, you must cease all use of the Software and destroy all copies in your possession.
+   7.3 Licensor may revoke this license at any time, with or without cause, by providing notice via official channels (e.g., GitHub).
+
+8. GOVERNING LAW
+   8.1 This EULA is governed by the laws of [Your Country/State, e.g., "the United States, State of California"], excluding its conflict of law provisions.
+   8.2 Any disputes arising under this EULA shall be resolved in the courts of [Your Jurisdiction, e.g., "San Francisco County, California"].
+
+9. ENTIRE AGREEMENT
+   9.1 This EULA constitutes the entire agreement between you and Licensor regarding the Software and supersedes any prior agreements or understandings.
+   9.2 Licensor may update this EULA with future releases, and continued use of the Software constitutes acceptance of the updated terms.
+
+10. CONTACT INFORMATION
+    For questions, permissions, or feedback, contact INDDOTNET via GitHub: https://github.com/IndulgeinDotNet
+
+By using UtilityMaestro, you acknowledge that you have read, understood, and agree to be bound by this EULA.
