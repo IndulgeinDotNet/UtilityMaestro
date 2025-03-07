@@ -7,9 +7,6 @@ we’re excited to unveil Beta Version 3.0. With 20+ new features added, we’re
 Now, I know this isn’t fully polished—it’s a bit rough around the edges, and the GUI and exploits need more work. Life’s busy, and I only have weekends to tinker with it, but we’re eager to share it and hear your thoughts!
 
 
-Usage
-
-Download and Run the Executable
 
 **Prerequisites**
 
