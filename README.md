@@ -11,7 +11,8 @@ Usage
 WINPCAP must be installed as a prerequesite.
 [Download WINPCAP](https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe)
 
-Download WINPCAP from the link above. once installed, download and open the Utility Maestro Executable and all tools should be available.
+Download WINPCAP from the link above. 
+Once installed, download and open the Utility Maestro Executable and all tools should be available.
 [Download Utility Maestro](https://github.com/IndulgeinDotNet/UtilityMaestro/releases/Beta)
 
 Handle Windows Defender (if flagged):
