@@ -11,7 +11,7 @@ Usage
 
 Download and Run the Executable
 
-Prerequisites
+**Prerequisites**
 
 Usage **Download and Run the Executable:** WINPCAP must be installed as a prerequesite. 
 
@@ -23,7 +23,7 @@ Once installed, download and open the Utility Maestro Executable and all tools s
 
 [Download Utility Maestro](https://github.com/IndulgeinDotNet/UtilityMaestro/releases/Beta)
 
-Handle Windows Defender (if flagged):
+**Handle Windows Defender (if flagged):**
 
 If Defender blocks UtilityMaestro.exe:
 
@@ -43,7 +43,7 @@ For network tools, right-click > Run as administrator.
 
 Enter access code 1234 and check the ethical use box to unlock features.
 
-Explore the Tools:
+**Explore the Tools:**
 
 Use the scrollable sidebar to access all 25+ tools.
 
@@ -53,33 +53,10 @@ Note: Access codes are currently static (1234). A server for dynamic codes is in
 
 
 
-Overview
 
-Features
 
-Port Scanner
 
-Vulnerability Scanner
-
-Password Cracker
-
-Network Sniffer
-
-SQL Injection Tool
-
-Additional Tools
-
-Responsible and Ethical Use
-
-Usage
-
-Screenshots
-
-License
-
-Author
-
-Overview
+**Overview**
 
 UtilityMaestro is a powerful cybersecurity toolkit designed for network analysis, penetration testing, and security assessments. 
 
@@ -87,18 +64,18 @@ Version 3.0 introduces over 25 tools, from port scanning to advanced exploit tes
 
 Built for ethical hackers and security professionals, it’s a versatile toolset for authorized testing—help us refine it with your feedback!
 
-Release Details:
+**Release Details:**
 
 UtilityMaestro v3.0 - March 07, 2025
 
 A cybersecurity toolkit for ethical use only.
 
-Features
 UtilityMaestro v3.0 offers a robust suite of over 25 tools. 
 
 Below are highlights of the core features, followed by a list of additional tools.
 
-Port Scanner
+
+**Port Scanner**
 
 Description: Scans for open ports on a target system with stealth options (TCP, SYN, FIN).
 
@@ -108,7 +85,7 @@ Designed for speed and precision, the Port Scanner uncovers network entry points
 
 
 
-Vulnerability Scanner
+**Vulnerability Scanner**
 
 Description: Detects over 20 common vulnerabilities in web applications (e.g., XSS, SQLi, Log4Shell).
 
@@ -117,8 +94,8 @@ Usage: Scan web apps for exploitable flaws with real CVE-based checks.
 This tool probes for vulnerabilities like remote code execution and injection attacks. Use it on authorized targets to strengthen security.
 
 
-
-Password Cracker
+**
+**Password Cracke**r**
 
 Description: Cracks MD5, SHA1, and SHA256 hashes using brute force or dictionary attacks.
 
@@ -127,8 +104,8 @@ Usage: Test password strength in controlled environments.
 Perfect for assessing hash security, it supports custom dictionaries for faster cracking. Never use it for unauthorized access.
 
 
-
-Network Sniffer
+**
+**Network Sniffer****
 
 Description: Captures and analyzes live network traffic with deep packet inspection.
 
@@ -138,7 +115,7 @@ A real-time traffic analyzer, it’s great for debugging or security monitoring.
 
 
 
-SQL Injection Tool
+**SQL Injection Tool**
 
 Description: Tests web applications for SQL injection vulnerabilities with advanced payloads.
 
@@ -147,8 +124,8 @@ Usage: Inject predefined payloads to identify SQL flaws and analyze responses.
 This tool simulates SQL attacks (e.g., command execution) to find weaknesses. Use only with explicit permission.
 
 
-
-Additional Tools
+**
+Additional Tools**
 
 UtilityMaestro v3.0 includes 20+ more tools, such as:
 
@@ -213,7 +190,7 @@ Misuse can lead to legal consequences. Use UtilityMaestro only for authorized se
 
 License
 
-UtilityMaestro is currently unlicensed. See Private for details.
+**UtilityMaestro is currently unlicensed. See Private for details.**
 
 Author
 
