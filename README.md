@@ -54,20 +54,38 @@ Note: Access codes are currently static (1234). A server for dynamic codes is in
 
 
 Overview
+
 Features
+
 Port Scanner
+
 Vulnerability Scanner
+
 Password Cracker
+
 Network Sniffer
+
 SQL Injection Tool
+
 Additional Tools
+
 Responsible and Ethical Use
+
 Usage
+
 Screenshots
+
 License
+
 Author
+
 Overview
-UtilityMaestro is a powerful cybersecurity toolkit designed for network analysis, penetration testing, and security assessments. Version 3.0 introduces over 25 tools, from port scanning to advanced exploit testing, all wrapped in a functional (if not yet perfect) GUI. Built for ethical hackers and security professionals, it’s a versatile toolset for authorized testing—help us refine it with your feedback!
+
+UtilityMaestro is a powerful cybersecurity toolkit designed for network analysis, penetration testing, and security assessments. 
+
+Version 3.0 introduces over 25 tools, from port scanning to advanced exploit testing, all wrapped in a functional (if not yet perfect) GUI. 
+
+Built for ethical hackers and security professionals, it’s a versatile toolset for authorized testing—help us refine it with your feedback!
 
 Release Details:
 
@@ -76,86 +94,127 @@ UtilityMaestro v3.0 - March 07, 2025
 A cybersecurity toolkit for ethical use only.
 
 Features
-UtilityMaestro v3.0 offers a robust suite of over 25 tools. Below are highlights of the core features, followed by a list of additional tools.
+UtilityMaestro v3.0 offers a robust suite of over 25 tools. 
+
+Below are highlights of the core features, followed by a list of additional tools.
 
 Port Scanner
+
 Description: Scans for open ports on a target system with stealth options (TCP, SYN, FIN).
+
 Usage: Identify open ports within a specified range for troubleshooting or security audits.
+
 Designed for speed and precision, the Port Scanner uncovers network entry points. Ideal for admins and pentesters, it requires admin rights for stealth scans.
 
+
+
 Vulnerability Scanner
+
 Description: Detects over 20 common vulnerabilities in web applications (e.g., XSS, SQLi, Log4Shell).
+
 Usage: Scan web apps for exploitable flaws with real CVE-based checks.
+
 This tool probes for vulnerabilities like remote code execution and injection attacks. Use it on authorized targets to strengthen security.
 
+
+
 Password Cracker
+
 Description: Cracks MD5, SHA1, and SHA256 hashes using brute force or dictionary attacks.
+
 Usage: Test password strength in controlled environments.
+
 Perfect for assessing hash security, it supports custom dictionaries for faster cracking. Never use it for unauthorized access.
 
+
+
 Network Sniffer
+
 Description: Captures and analyzes live network traffic with deep packet inspection.
+
 Usage: Monitor packets in real-time, view payloads, and filter by protocol.
+
 A real-time traffic analyzer, it’s great for debugging or security monitoring. Requires admin privileges and legal consent.
 
+
+
 SQL Injection Tool
+
 Description: Tests web applications for SQL injection vulnerabilities with advanced payloads.
+
 Usage: Inject predefined payloads to identify SQL flaws and analyze responses.
+
 This tool simulates SQL attacks (e.g., command execution) to find weaknesses. Use only with explicit permission.
 
+
+
 Additional Tools
+
 UtilityMaestro v3.0 includes 20+ more tools, such as:
 
+
+
 File Downloader: Downloads files with proxy support.
+
 DNS Resolver: Resolves domains with spoofing detection.
+
 Hash Generator: Creates MD5, SHA1, SHA256 hashes.
+
 Base64 Encoder: Encodes/decodes text.
+
 Ping Tool: Pings hosts with custom TTL and size.
+
 Exploit Launcher: Launches real exploits (e.g., EternalBlue, Heartbleed).
+
 Packet Injector: Sends custom TCP/UDP packets.
+
 Phishing Simulator: Sends test phishing emails via SMTP.
+
 ARP Spoofer: Intercepts traffic via ARP poisoning.
+
 Shellshock Exploit: Tests CVE-2014-6271.
+
 Heartbleed Exploit: Exploits CVE-2014-0160.
+
 EternalBlue Exploit: Targets CVE-2017-0144.
+
 Reverse Shell: Establishes remote shells.
+
 Keylogger: Logs keystrokes locally (test only).
+
 WiFi Scanner: Enumerates nearby networks.
+
 Privilege Escalation: Attempts local privilege checks.
+
 Backdoor Installer: Deploys test backdoors.
+
 XSS Injector: Injects XSS payloads.
+
 CSRF Tester: Tests for CSRF vulnerabilities.
+
 Brute Forcer: Attacks HTTP, FTP, SSH logins.
+
 Responsible and Ethical Use
+
 UtilityMaestro is a potent toolset—use it responsibly:
 
+
 Authorization: Obtain explicit permission before testing any system or network. Unauthorized use may violate laws like the CFAA (US) or local equivalents.
+
 Privacy: Do not intercept or analyze traffic without consent—respect user privacy.
+
 Data Protection: Handle sensitive data per applicable laws (e.g., GDPR, CCPA).
+
 Responsible Disclosure: Report discovered vulnerabilities to system owners promptly and ethically.
+
 Misuse can lead to legal consequences. Use UtilityMaestro only for authorized security testing.
 
 
 
-Screenshots
-Login Screen
-
-
-
-Vulnerability Scanner
-
-
-
-Network Sniffer
-
-
-
-SQL Injection Tool
-
-
-
 License
+
 UtilityMaestro is currently unlicensed. See Private for details.
 
 Author
+
 Developed by INDDOTNET.
