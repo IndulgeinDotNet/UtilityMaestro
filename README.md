@@ -91,8 +91,8 @@ Usage: Scan web apps for exploitable flaws with real CVE-based checks.
 This tool probes for vulnerabilities like remote code execution and injection attacks. Use it on authorized targets to strengthen security.
 
 
-**
-**Password Cracke**r**
+
+**Password Cracke**
 
 Description: Cracks MD5, SHA1, and SHA256 hashes using brute force or dictionary attacks.
 
@@ -101,8 +101,8 @@ Usage: Test password strength in controlled environments.
 Perfect for assessing hash security, it supports custom dictionaries for faster cracking. Never use it for unauthorized access.
 
 
-**
-**Network Sniffer****
+
+**Network Sniffer**
 
 Description: Captures and analyzes live network traffic with deep packet inspection.
 
