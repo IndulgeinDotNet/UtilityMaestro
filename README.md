@@ -85,14 +85,14 @@ Responsible Disclosure: Report discovered vulnerabilities to system owners promp
 Misuse can lead to legal consequences. Use UtilityMaestro only for authorized security testing.
 
 Usage
-Download and Run the Executable:
-Grab UtilityMaestro_v3.0.zip from the Releases page (Windows only for now—macOS/Linux support pending).
+**Download and Run the Executable:**
+Grab** UtilityMaestro_v3.0.zi**p from the Releases page (Windows only for now—macOS/Linux support pending).
 Extract the .zip to a folder (e.g., C:\Users\YourName\Downloads\UtilityMaestro\).
 Handle Windows Defender (if flagged):
 If Defender blocks UtilityMaestro.exe:
-Open Windows Security > Virus & threat protection.
+**Open Windows Security > Virus & threat protection.
 Under “Current threats,” find UtilityMaestro.exe > Actions > Allow on device.
-Or add an exclusion: Manage settings > Add or remove exclusions > Add an exclusion > File > Select UtilityMaestro.exe.
+Or add an exclusion: Manage settings > Add or remove exclusions > Add an exclusion > File > Select UtilityMaestro.exe.**
 Note: This is a false positive due to network/file operations.
 Launch the Application:
 Double-click UtilityMaestro.exe.
@@ -101,7 +101,7 @@ Enter access code 1234 and check the ethical use box to unlock features.
 Explore the Tools:
 Use the scrollable sidebar to access all 25+ tools.
 Follow each tool’s help prompt for specific usage.
-Note: Access codes are currently static (1234). A server for dynamic codes is in development.
+Note: **Access codes are currently static (1234**). A server for dynamic codes is in development.
 
 Screenshots
 Login Screen
