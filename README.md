@@ -6,6 +6,8 @@ we’re excited to unveil Beta Version 3.0. With 20+ new features added, we’re
 
 Now, I know this isn’t fully polished—it’s a bit rough around the edges, and the GUI and exploits need more work. Life’s busy, and I only have weekends to tinker with it, but we’re eager to share it and hear your thoughts!
 
+New Nighly Build Screenshot ![image](https://github.com/user-attachments/assets/06838743-93d9-448d-bb63-c6aac14be43d)
+
 
 
 **Prerequisites**
