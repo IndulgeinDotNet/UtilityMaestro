@@ -2,7 +2,7 @@ UtilityMaestro - A Comprehensive Cybersecurity Toolkit
 <img width="739" alt="maestro" src="https://github.com/IndulgeinDotNet/UtilityMaestro/assets/125331271/e5f6c82b-7fa7-4a66-86b2-b2a52f48a3dc">
 
 The third beta of UtilityMaestro has been released! After a few months of development and behind-the-scenes refinements, 
-we’re excited to unveil Beta Version 3.0. With 20+ new features added, we’re opening this program to the public for testing and feedback.
+we’re excited to unveil Beta Version 0.3.0. With 20+ new features added, we’re opening this program to the public for testing and feedback.
 
 Now, I know this isn’t fully polished—it’s a bit rough around the edges, and the GUI and exploits need more work. Life’s busy, and I only have weekends to tinker with it, but we’re eager to share it and hear your thoughts!
 
@@ -60,17 +60,17 @@ Note: Access codes are currently static (1234). A server for dynamic codes is in
 
 UtilityMaestro is a powerful cybersecurity toolkit designed for network analysis, penetration testing, and security assessments. 
 
-Version 3.0 introduces over 25 tools, from port scanning to advanced exploit testing, all wrapped in a functional (if not yet perfect) GUI. 
+Version 0.3.0 introduces over 25 tools, from port scanning to advanced exploit testing, all wrapped in a functional (if not yet perfect) GUI. 
 
 Built for ethical hackers and security professionals, it’s a versatile toolset for authorized testing—help us refine it with your feedback!
 
 **Release Details:**
 
-UtilityMaestro v3.0 - March 07, 2025
+UtilityMaestro v0.3.0 - March 07, 2025
 
 A cybersecurity toolkit for ethical use only.
 
-UtilityMaestro v3.0 offers a robust suite of over 25 tools. 
+UtilityMaestro v0.3.0 offers a robust suite of over 25 tools. 
 
 Below are highlights of the core features, followed by a list of additional tools.
 
@@ -127,7 +127,7 @@ This tool simulates SQL attacks (e.g., command execution) to find weaknesses. Us
 **
 Additional Tools**
 
-UtilityMaestro v3.0 includes 20+ more tools, such as:
+UtilityMaestro v0.3.0 includes 20+ more tools, such as:
 
 
 
