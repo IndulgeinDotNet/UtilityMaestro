@@ -12,11 +12,12 @@ Now, I know this isn’t fully polished—it’s a bit rough around the edges, a
 
 **Prerequisites**
 
-Usage **Download and Run the Executable:** WINPCAP must be installed as a prerequesite. 
+Usage **Download and Run the Executable:** NPCAP must be installed as a prerequesite. 
 
-[Download WINPCAP](https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe)
+[Download NPCAP](https://npcap.com/dist/npcap-1.81.exe)
+[OR Download WINPCAP](https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe)
 
-Download WINPCAP from the link above.
+Download NPCAP/WINPCAP from the link above.
 
 Once installed, download and open the Utility Maestro Executable and all tools should be available.
 
