@@ -25,7 +25,7 @@ Download NPCAP/WINPCAP from the link above.
 
 Once installed, download and open the Utility Maestro Executable and all tools should be available.
 
-[Download Utility Maestro](https://github.com/IndulgeinDotNet/UtilityMaestro/releases/Beta)
+[Download Utility Maestro]([https://github.com/IndulgeinDotNet/UtilityMaestro/releases/Beta](https://github.com/IndulgeinDotNet/UtilityMaestro/releases/tag/NightDev))
 
 **Handle Windows Defender (if flagged):**
 
