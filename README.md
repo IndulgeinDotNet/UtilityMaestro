@@ -1,5 +1,6 @@
 UtilityMaestro - A Comprehensive Cybersecurity Toolkit
-<img width="739" alt="maestro" src="https://github.com/IndulgeinDotNet/UtilityMaestro/assets/125331271/e5f6c82b-7fa7-4a66-86b2-b2a52f48a3dc">
+![image](https://github.com/user-attachments/assets/6318eef6-d96f-476e-8a97-f9490b109d3b)
+
 
 The third beta of UtilityMaestro has been released! After a few months of development and behind-the-scenes refinements, 
 we’re excited to unveil Beta Version 0.3.0. With 20+ new features added, we’re opening this program to the public for testing and feedback.
