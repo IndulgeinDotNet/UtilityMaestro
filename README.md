@@ -6,6 +6,8 @@ Update - April 1, 2025: The program is now approximately 65% complete, with sign
 purchase the full version, which includes advanced penetration testing (pentesting) tools. These tools, while powerful, carry significant risks if misused, so access will be 
 carefully controlled. The license price for the full version will remain reasonable but will be subject to strict regulation to ensure responsible distribution.
 
+-------
+
 
 The third beta of UtilityMaestro has been released! After a few months of development and behind-the-scenes refinements, 
 we’re excited to unveil Beta Version 0.3.0. With 20+ new features added, we’re opening this program to the public for testing and feedback.
