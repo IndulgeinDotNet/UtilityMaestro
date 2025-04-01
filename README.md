@@ -1,10 +1,11 @@
 UtilityMaestro - A Comprehensive Cybersecurity Toolkit
 
 <img src="https://github.com/user-attachments/assets/2393e7dc-6e5a-4264-8f9d-8f23372bb00a" width="1000" height="267" alt="Utility Maestro Logo">
+Update - April 1, 2025: The program is now approximately 65% complete, with significant progress made on its full suite of tools. Public builds released on GitHub
+ will be limited to networking tools only, ensuring accessibility for general users. However, a select group of trusted individuals will be granted early access to test and 
+purchase the full version, which includes advanced penetration testing (pentesting) tools. These tools, while powerful, carry significant risks if misused, so access will be 
+carefully controlled. The license price for the full version will remain reasonable but will be subject to strict regulation to ensure responsible distribution.
 
-
-update 4/1/2025:the program is about 65% complete in terms of all the tools. the builds released on github for the public will be restricted to networking tools
-but a handful selected will be able to test and purchase the full version with the pentesting tools provided. these tools are dangerous if in the wrong hands. the proce to purchase the licence will not be outrageous, but it will be strictly regulated.
 
 The third beta of UtilityMaestro has been released! After a few months of development and behind-the-scenes refinements, 
 we’re excited to unveil Beta Version 0.3.0. With 20+ new features added, we’re opening this program to the public for testing and feedback.
