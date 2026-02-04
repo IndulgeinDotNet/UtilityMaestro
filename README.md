@@ -3,8 +3,11 @@ UtilityMaestro - A Comprehensive Cybersecurity Toolkit
 <img src="https://github.com/user-attachments/assets/2393e7dc-6e5a-4264-8f9d-8f23372bb00a" width="1000" height="267" alt="Utility Maestro Logo">
 
 
-(The releases currently available do not mirror the actual state of the software in development.)
-Update - February 3, 2026: The program has been halted as of October 2025. The tool has been broken up into a mutitude of software, one including the potentally harmful tools and one with network discovery tools. We will release the ND tools to the public. The exploit tools are request only and not available to the general public.  
+The current releases do not accurately reflect the actual state of the software in development.
+
+
+--
+Update - February 3, 2026: The program has been discontinued as of October 2025. The tool has been divided into multiple software components, including potentially harmful tools and network discovery tools. We will release the network discovery tools to the public. The exploit tools are request-only and are not available to the general public.  
 
 
 
@@ -16,10 +19,9 @@ carefully controlled. The license price for the full version will remain reasona
 -------
 
 
-The third beta of UtilityMaestro has been released! After a few months of development and behind-the-scenes refinements, 
-we’re excited to unveil Beta Version 0.3.0. With 20+ new features added, we’re opening this program to the public for testing and feedback.
+UtilityMaestro’s third beta version has been released! After months of development and behind-the-scenes refinements, we’re thrilled to unveil Beta Version 0.3.0. With over 20 new features added, we’re inviting the public to test and provide feedback on this program.
 
-Now, I know this isn’t fully polished—it’s a bit rough around the edges, and the GUI and exploits need more work. Life’s busy, and I only have weekends to tinker with it, but we’re eager to share it and hear your thoughts!
+I understand that this version may not be fully polished yet. It has some rough edges, and the GUI and exploits require further work. Life is busy, and I can only dedicate weekends to tinkering with it, but we’re eager to share it with you and hear your thoughts!
 
 **New Nighly Build Screenshot **
 ![image](https://github.com/user-attachments/assets/7f887e21-1f9e-4725-8b4d-76cd85fbbf14)
