@@ -2,12 +2,22 @@ UtilityMaestro - A Comprehensive Cybersecurity Toolkit
 
 <img src="https://github.com/user-attachments/assets/2393e7dc-6e5a-4264-8f9d-8f23372bb00a" width="1000" height="267" alt="Utility Maestro Logo">
 
-**
 The current releases do not accurately reflect the actual state of the software in development.
 
 
+
+**4/20/2026-- debating on continuting the tool but under a different name...**
+
 --
-Update - February 3, 2026: The program has been discontinued as of October 2025. The tool has been divided into multiple software components, including potentially harmful tools and network discovery tools. We will release the network discovery tools to the public. The exploit tools are request-only and are not available to the general public.  **
+**Update - February 3, 2026: The program has been discontinued as of October 2025. The tool has been divided into multiple software components, including potentially harmful tools and network discovery tools. We will release the network discovery tools to the public. The exploit tools are request-only and are not available to the general public.  **
+
+
+
+
+
+
+Previous updates:
+
 
 
 
@@ -17,6 +27,7 @@ purchase the full version, which includes advanced penetration testing (pentesti
 carefully controlled. The license price for the full version will remain reasonable but will be subject to strict regulation to ensure responsible distribution.
 
 -------
+
 
 
 UtilityMaestro’s third beta version has been released! After months of development and behind-the-scenes refinements, we’re thrilled to unveil Beta Version 0.3.0. With over 20 new features added, we’re inviting the public to test and provide feedback on this program.
