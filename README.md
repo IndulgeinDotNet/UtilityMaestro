@@ -2,12 +2,12 @@ UtilityMaestro - A Comprehensive Cybersecurity Toolkit
 
 <img src="https://github.com/user-attachments/assets/2393e7dc-6e5a-4264-8f9d-8f23372bb00a" width="1000" height="267" alt="Utility Maestro Logo">
 
-
+**
 The current releases do not accurately reflect the actual state of the software in development.
 
 
 --
-Update - February 3, 2026: The program has been discontinued as of October 2025. The tool has been divided into multiple software components, including potentially harmful tools and network discovery tools. We will release the network discovery tools to the public. The exploit tools are request-only and are not available to the general public.  
+Update - February 3, 2026: The program has been discontinued as of October 2025. The tool has been divided into multiple software components, including potentially harmful tools and network discovery tools. We will release the network discovery tools to the public. The exploit tools are request-only and are not available to the general public.  **
 
 
 
