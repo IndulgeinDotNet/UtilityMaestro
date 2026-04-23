@@ -2,8 +2,8 @@ UtilityMaestro
 
 Cybersecurity toolkit for network analysis and testing
 
-<img src="https://github.com/user-attachments/assets/2393e7dc-6e5a-4264-8f9e-8f23372bb00a" width="1000">
-Status
+
+**Status**
 
 This project is not actively developed anymore.
 
